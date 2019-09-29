@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<!--
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+-->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<head>
+<title> Analytic Combinatorics in Several Variables</title>
+<link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+
+<body>
+
+<div id="header">
+<h1 class="style3"><a NAME="toplink">Analytic Combinatorics in Several Variables</h1></a>
+</div>
+
+<div id="content">
+The aim of this project is to systematize  (asymptotic) coefficient extraction from a wide class of naturally occurring multivariate generating functions. We aim to take a genuinely multivariate approach, and to improve over previous work in the areas of generality, ease of use, and suitability for effective computation. The topic is inherently interdisciplinary and uses complex analysis in one and several variables, asymptotics of integrals, topology, algebraic geometry, and symbolic computation. The application areas are many: we are particularly motivated by specific naturally occurring problems arising from areas such as multivariate recurrence relations, random tilings, queueing theory, and analysis of algorithms and data structures. If you are interested in working on these problems, please let us know.
+<p>
+Our methods use complex analysis and oscillatory integrals to analyse singularities of explicitly known generating functions. We deal with generating functions of the form $F(\mathbf{z}) = \sum a_{r_1}\dots a_{r_d} z_1^{r_1} \cdots z_d^{r_d}$ which can locally be expressed in the form $G/H$ with $G$ and $H$ analytic functions. The singular set of this function (zero-set of $H$) plays a large role.
+
+<hr>
+<h2><a NAME="people">People</a></h2>
+The long-term organizers of this project are:
+<a href="http://www.math.upenn.edu/~pemantle">Robin Pemantle</a>  
+| <a href="https://markcwilson.site">Mark C. Wilson</a> 
+| <a href="https://publish.illinois.edu/ymb/">Yuliy Baryshnikov</a>
+| <a href="http://melczer.ca">Stephen Melczer</a>
+| <a href="http://people.math.sfu.ca/~mmishna/">Marni Mishna</a>
+.
+
+<hr>
+<h2><a NAME="events">Events related to this project</a></h2>
+<ul>
+<li> Melczer, Mishna and Pemantle are organizing (and Baryshnikov and Wilson assisting with) an American Mathematical Society Mathematics Research Community for May-June 2020, with application deadline 2020-02-15. Participants should be between -2 and +5 years from award of PhD. 
+<p>
+Details and registration <a href="https://www.ams.org/programs/research-communities/2020MRC-CompGeom"> HERE </a>
+<p>
+Summary: The new and rapidly expanding area of Analytic Combinatorics in Several Variables (ACSV) concerns enumeration problems in such areas as lattice walks, statistical mechanical models, quantum walks and other exactly solvable models where asymptotic estimation of coefficients of a bivariate or multivariate generating function is required. The multivariate setting incorporates a wider swath of mathematics. including singularity theory, algebraic topology, and computational algebra. Participants in this MRC will be introduced to problems from these areas of mathematics whose solutions have direct applications to ACSV. These problems are not hard to state in the language of disciplines such as Morse theory, harmonic analysis, or commutative algebra, but they ask questions not typical in those fields. A long-term goal is to advance and automate this work, so that its benefits can be used by other researchers in mathematics and the natural sciences through implementations in computer algebra packages. Problems for this MRC will be arranged around five central topics: effective computer algebra methods, algorithms using computational topology, multivariate asymptotic phase transitions, singular transforms for degenerate saddle-point integrals, and applications of harmonic analysis and singularity theory.
+</ul>
+
+<hr>
+<h2> <a NAME="publications">Publications in this project</a></h2>
+Publications are generally listed in reverse chronological order of production. Papers applying results of this project to other areas are listed below this section. Versions linked here are usually not the official published versions, but they are usually the latest prepublication versions held by the authors.
+
+<h3> Publications concerning core theory of the project </h3>
+<ol reversed = true>
+<li> Analytic Combinatorics in Several Variables by Robin Pemantle, Mark C. Wilson, Stephen Melczer. Forthcoming 2nd edition of Cambridge monograph, 2021.
+<li> An Invitation to Analytic Combinatorics in Several Variables by Stephen Melczer. Texts & Monographs in Symbolic Computation, Springer Nature. Expected late 2020.
+<li> <a href="https://www.amazon.com/Introductory-Multidimensional-Combinatorics-Mathematics-Applications/dp/113848976X"> Analytic Combinatorics: A Multidimensional Approach</a> by Marni Mishna (forthcoming book, 2019/2020).
+<li>
+<a href="https://arxiv.org/abs/1905.05250" name="BMP2019b">Critical points at infinity for analytic combinatorics</a>
+by Yuliy Baryshnikov, Stephen Melczer and Robin Pemantle. Under review 2019.
+<p>
+On complex algebraic varieties, height functions arising in combinatorial applications fail to be proper. This complicates the description and computation via Morse theory of key topological invariants. Here we establish checkable conditions under which the behavior at infinity may be ignored, and the usual theorems of classical and stratified Morse theory may be applied.
+<li>
+<a href="https://arxiv.org/abs/1905.04187" name="SaMe2019">
+Effective Coefficient Asymptotics of Multivariate Rational Functions via Semi-Numerical Algorithms for Polynomial Systems</a> 
+by Bruno Salvy and Stephen Melczer. Under review 2019.
+<p>
+This subsumes the results in the earlier conference paper (ISSAC 2016).
+
+The coefficient sequences of multivariate rational functions appear in many areas of combinatorics. Their diagonal coefficient sequences enjoy nice arithmetic and asymptotic properties, and the field of analytic combinatorics in several variables (ACSV) makes it possible to compute asymptotic expansions. We consider these methods from the point of view of effectivity. In particular, given a rational function, ACSV requires one to determine a (generically) finite collection of points that are called critical and minimal. Criticality is an algebraic condition, meaning it is well treated by classical methods in computer algebra, while minimality is a semi-algebraic condition describing points on the boundary of the domain of convergence of a multivariate power series. We show how to obtain dominant asymptotics for the diagonal coefficient sequence of multivariate rational functions under some genericity assumptions using symbolic-numeric techniques. To our knowledge, this is the first completely automatic treatment and complexity analysis for the asymptotic enumeration of rational functions in an arbitrary number of variables.
+<li>
+<a href="https://arxiv.org/abs/1905.04174" name="BMP2019a">
+Asymptotics of multivariate sequences in the presence of a lacuna</a>
+by Yuliy Baryshnikov, Stephen Melczer and Robin Pemantle. Under review 2019.
+<p>
+We explain a discontinuous drop in the exponential growth rate for
+certain multivariate generating functions at a critical parameter value,
+in even dimensions at least 4. This result depends on computations in the
+homology of the algebraic variety where the generating function has a
+pole. These computations are similar to, and inspired by, a thread of
+research in applications of complex algebraic geometry to hyperbolic
+PDEs, going back to Leray, Petrowski, Atiyah, Bott and GÃ¤rding. As a
+consequence, we give a topological explanation for certain asymptotic
+phenomenon appearing in the combinatorics and number theory literature.
+Furthermore, we show how to combine topological methods with symbolic
+algebraic computation to determine explicitly the dominant asymptotics
+for such multivariate generating functions. This in turn enables the
+rigorous determination of integer coefficients in the Morse-Smale
+complex, which are difficult to determine using direct geometric
+methods.
+
+<li>
+<a href="https://arxiv.org/abs/1709.05051" name="SM2017">Analytic Combinatorics in Several Variables: Effective Asymptotics and Lattice Path Enumeration</a>
+by Stephen Melczer. PhD thesis (Waterloo/Lyon), 259 pages.
+<p>
+We give a pedagogical introduction to the methods of ACSV from a computer algebra viewpoint, developing rigorous algorithms and giving the first complexity results in this area under conditions which are broadly satisfied. Furthermore, we give several new applications of ACSV to the enumeration of lattice walks restricted to certain regions. In addition to proving several open conjectures on the asymptotics of such walks, a detailed study of lattice walk models with weighted steps is undertaken.
+<li>
+<a href="https://arxiv.org/pdf/1604.04642" name="TG2016">Asymptotics of Bivariate Generating Functions with Algebraic Singularities</a>
+by Torin Greenwood. J. Combinatorial Theory A 2018.
+<p>
+Deals with bivariate algebraic singularities.
+</p>
+<!-- 
+<li>
+<a href="https://arxiv.org/abs/1605.00402">Symbolic-Numeric Tools for Analytic Combinatorics in Several Variables</a> by Stephen Melczer and Bruno Salvy. Proceedings of ISSAC'16, 333-340.
+<p>
+Analytic combinatorics studies the asymptotic behavior of sequences through the analytic properties of their generating functions. This article provides effective algorithms required for the study of analytic combinatorics in several variables, together with their complexity analyses. Given a multivariate rational function we show how to compute its smooth isolated critical points, with respect to a polynomial map encoding asymptotic behaviour, in complexity singly exponential in the degree of its denominator. We introduce a numerical Kronecker representation for solutions of polynomial systems with rational coefficients and show that it can be used to decide several properties (0 coordinate, equal coordinates, sign conditions for real solutions, and vanishing of a polynomial) in good bit complexity. Among the critical points, those that are minimal---a property governed by inequalities on the moduli of the coordinates---typically determine the dominant asymptotics of the diagonal coefficient sequence. When the Taylor expansion at the origin has all non-negative coefficients (known as the 'combinatorial case') and under regularity conditions, we utilize this Kronecker representation to determine probabilistically the minimal critical points in complexity singly exponential in the degree of the denominator, with good control over the exponent in the bit complexity estimate. Generically in the combinatorial case, this allows one to automatically and rigorously determine asymptotics for the diagonal coefficient sequence. Examples obtained with a preliminary implementation show the wide applicability of this approach.
+</p>
+-->
+<li>
+<a href="ACSVbook.html" name = "PeWi2013"> Analytic Combinatorics in Several Variables </a>
+by Robin Pemantle and Mark C. Wilson. Cambridge University  Press, 2013.
+<p> Textbook containing the most complete and expansive treatment of the theory.
+<li>
+<a href="https://arxiv.org/abs/1108.1209" name ="DVP2012">Automatic asymptotics for coefficients of smooth, bivariate
+rational functions</a> by
+Timothy DeVries, Joris van der Hoeven and Robin Pemantle.
+Online J. Anal. Comb., vol. 6, 24 pages (2012).
+<p>
+Shows how to compute contributing points algorithmically even when they are 
+not minimal, extending the applicability of the smooth point methods.
+<li> 
+<a href="https://markcwilson.site/Research/mvGF/asymultseq/Raic2011.pdf" name="Raic2011">
+New software for computing asymptotics of multivariate generating functions</a>
+by Alexander Raichev.
+ACM Communications in Computer Algebra 45 (2011), 183-185.
+<p>
+Describes the Sage package <a href="#software">amgf </a>.
+<li>
+<a href="https://arxiv.org/abs/0803.2914" name="RaWi2012">Asymptotics of coefficients of multivariate 
+generating functions: improvements for smooth points
+</a>
+by Alexander Raichev and Mark C. Wilson.  Online Journal of Analytic Combinatorics, 2011.
+<p>We improve over the first paper by Pemantle and Wilson, and derive
+explicit formulae for the entire asymptotic series obtained by analysis
+near a smooth point of the singular variety. The numerical results
+obtained show how well these approximations work in practice. 
+</p>
+<li>
+<a href="https://markcwilson.site/Research/mvGF/asymultseq/Pema2010.pdf" name="Pema2010">
+Analytic combinatorics in $d$ variables: An overview</a>
+by Robin Pemantle. AMS Contemporary Mathematics 520.
+<p>
+<li>
+<a href="https://markcwilson.site/Research/mvGF/asymultseq/Devr2010.pdf"
+name="Devr2010">A case study in bivariate singularity analysis</a> by Timothy Devries. 
+AMS Contemporary Mathematics 520.
+<p>
+The first detailed treatment of an example in which asymptotics in the scale of 
+\(n^{1/4}\) occur rather than the usual $n^{1/2}$. A degenerate saddle point occurs 
+in a natural counting problem whose answer is expressed as the diagonal sequence 
+of a bivariate rational generating function. Results from previous papers do not
+cover this case. Performing the analysis in this example represents a first 
+step towards understanding general cases of this geometric type.
+<li>
+<a href="https://markcwilson.site/Research/Outputs/PeWi2009.pdf" name="PeWi2009">
+Asymptotic expansions of oscillatory integrals with complex phase
+</a> by Robin Pemantle and Mark C. Wilson. AMS Contemporary Mathematics 520.
+<p>
+We consider saddle point integrals in $d$ variables whose phase function is neither 
+real nor purely imaginary. Results analogous to those for Laplace (real phase) 
+and Fourier (imaginary phase) integrals hold whenever the phase function is 
+analytic and nondegenerate. These results generalize what is well known for 
+integrals of Laplace and Fourier type. The method is via contour shifting in 
+complex $d$-space. This work is motivated by applications to asymptotic enumeration, 
+and fulfils a promised citation made in an <a href="#PeWi2004">earlier paper by 
+these authors</a>.
+<li>
+<a href="https://arxiv.org/abs/0810.4898">Asymptotics of multivariate sequences, part III: Quadratic points</a> by 
+Yuliy Baryshnikov and Robin Pemantle. Advances in Mathematics 228 (2011), 3127-3206. 
+<p>
+We consider a number of combinatorial problems in which rational generating 
+functions may be obtained, whose denominators have factors with certain 
+singularities. Specifically, there exist cone points, near which one of the 
+factors is asymptotic to a nondegenerate quadratic. We compute the asymptotics 
+of the coefficients of such a generating function. The computation requires some 
+topological deformations as well as Fourier-Laplace transforms of 
+generalized functions. We apply the results of the theory to specific 
+combinatorial problems. This deals with another case in the original taxonomy 
+outlined in the <a href="#PeWi2002">first paper of Pemantle and Wilson</a>.
+</p>
+Note: original title was "Tilings, groves and multiset permutations: asymptotics 
+of rational generating functions whose pole set includes a cone".
+<li>
+<a href="https://www.combinatorics.org/ojs/index.php/eljc/article/view/v15i1r89" name="RaWib">
+Asymptotics of coefficients of multivariate generating functions: improvements for smooth points
+</a>
+by Alexander Raichev and Mark C. Wilson.  Electron. J. Combin.  15  (2008),  
+no. 1, Research Paper 89, 17 pp.
+<p>
+We improve over <a href="#PeWi2002">the first paper by
+Pemantle and Wilson</a>, and derive explicit formulae for the entire asymptotic 
+series obtained by analysis near a smooth point of the singular variety. 
+The numerical results obtained show how well these approximations work in 
+practice.
+</p>
+<li>
+<a href="http://www.dmtcs.org/dmtcs-ojs/index.php/proceedings/article/download/dmAH0133/2169" 
+name="RaWi2007a">
+A new method for computing asymptotics of diagonal coefficients of multivariate 
+generating functions
+</a>
+by Alexander Raichev and Mark C. Wilson. Proceedings of International Conference
+on Analysis of Algorithms, Juan-les-Pins, 2007.
+<p>
+Let $\sum_{\mathbf{n}\in\mathbb{N}^d} f_\mathbf{n} \mathbf{x^n}$ be a multivariate generating function that 
+converges in a neighborhood of the origin of $\mathbb{C}^d$. We present a new, multivariate method 
+for computing the asymptotics of the diagonal coefficients $f_{a_1n,\ldots,a_dn}$ and show 
+its superiority over the standard, univariate diagonal method. 
+<li>
+<a href="Llad2006b.pdf" name="Llad2006b">Mixed powers of generating functions</a> by
+Manuel Lladser. 
+Fourth Colloquium on Mathematics and Computer Science Algorithms, Trees,
+Combinatorics and Probabilities, Discrete Mathematics and Theoretical
+Computer Science Proceedings, AG, 171-182, 2006.
+<p>
+This paper derives uniform asymptotics for a multivariate generalization of 
+Riordan arrays, namely a GF of the form $\prod_j (1 - w_j f_j(z))^{-1}$. 
+In other words we seek the asymptotics of $[z^{n_0}] \prod_j f_j(z)^{n_j}$ 
+as at least one of the exponents $n_j$ tends to infinity. 
+This generalizes several
+results in the literature. Once again reduction to Fourier-Laplace
+integral is the key step.
+</p>
+<li>
+<a href="https://arxiv.org/abs/math/0608398" name="Llad2006">Uniform formulae for coefficients of meromorphic
+functions in two variables. Part I</a> by Manuel Lladser. 
+SIAM Journal on Discrete Mathematics 20 (2007), 811-828.
+<p>
+This paper derives uniform asymptotics in the smooth bivariate case when the
+directions in question are such that there is no phase change in the 
+underlying Fourier-Laplace integral. This generalizes results in 
+<a href="#PeWi20-02">the first Pemantle-Wilson paper</a>.
+<li>
+<a href="https://arxiv.org/abs/math/0512548" name=PeWi2005>
+Twenty combinatorial examples of asymptotics derived from multivariate generating functions
+</a>
+by Robin Pemantle and Mark C. Wilson.  SIAM Review  50  (2008), 199-272.
+<p>
+We illustrate the use of the techniques of some of the papers below, on a 
+variety of problems of combinatorial interest.  The survey begins by summarizing 
+previous work on the asymptotics of univariate and multivariate generating 
+functions.  Next we describe the Morse-theoretic underpinnings of some new 
+asymptotic techniques.  We then quote and summarize these results in such 
+a way that only elementary analyses are needed to check hypotheses 
+and carry out computations.  
+
+The remainder of the survey  focuses on combinatorial applications, 
+such as enumeration of words with forbidden substrings, edges and 
+cycles in graphs, polyominoes, and descents in permutations.  After the 
+individual examples, we discuss three broad classes of examples, 
+namely functions derived via the transfer matrix method, those 
+derived via the kernel method, and those derived via the method of 
+Lagrange inversion.  These methods have the property that 
+generating functions derived from them are amenable to our 
+asymptotic analyses, and we describe further machinery that 
+facilitates computations for these classes of examples.
+<p>
+
+<li>
+<a href="http://emis.impa.br/EMIS/journals/DMTCS/pdfpapers/dmAD0129.pdf" name="Wils2005">
+ Asymptotics for generalized Riordan arrays
+</a>
+by Mark C. Wilson. 
+Discrete Mathematics and Theoretical Computer
+Science, volume AD (2005), 323-334 (Proceedings of the 2005
+International Conference on Analysis of Algorithms, Barcelona).
+<p>
+This applies the results of papers below to derive bivariate asymptotics
+for the special case $F(x, y) = \phi(x)/(1 - yv(x))$, which arises
+frequently in applications. 
+<p>
+<li>
+<a href="https://www.math.upenn.edu/~pemantle/papers/Preprints/hyperplanes.ps">
+Convolutions of inverse linear functions via multivariate residues</a> 
+by Yuliy Baryshnikov and Robin Pemantle. 
+Preprint (2004), 42 pages.
+<p> This uses stratified Morse theory to derive complete expansions when 
+$V$ is a union of hyperplanes ($H$ is a product of linear factors). Such 
+GFs occur often in queueing theory. It does not handle directions on the 
+boundary of the cones mentioned below (Asymptotics of Multivariate
+Sequences, II). At present, each of these articles does something the
+other cannot.
+<li>
+<a href="https://arxiv.org/abs/math/0406022" name="PeWi2004"> 
+Asymptotics of multivariate sequences II: multiple points of the singular variety
+</a>
+by Robin Pemantle and Mark C. Wilson. 
+Combinatorics, Probability and Computing 13 (2004), 735-761.
+<p>  
+In this article
+we deal with multiple points of $V$. Our results show that the central
+limit (Ornstein-Zernike) behavior typical of the smooth case does not
+hold in the multiple point case. For example, when $\mathcal{V}$ has a
+multiple point singularity at $(1 , \ldots , 1)$, rather than
+$a_\mathbf{r}$ decaying as $|\mathbf{r}|^{-1/2}$ as $|\mathbf{r}| \to \infty$,
+$a_\mathbf{r}$ is very nearly polynomial in a cone of
+directions.
+<p>
+<li> 
+<a href="https://etd.ohiolink.edu/pg_10?0::NO:10:P10_ACCESSION_NUM:osu1060976912" name="lladser-thesis"> 
+Asymptotic enumeration via singularity analysis
+</a> 
+by Manuel Lladser. PhD thesis, Ohio State University 2003.
+<p>Asymptotics for smooth points are computed in the above articles by
+Fourier-Laplace integrals, and are usually uniform for most sets of
+directions. However there can be directions where the asymptotic
+behaviour changes (for example, in "Airy phenomena" where $r^{-1/2}$
+becomes $r^{-1/3}$) and uniformity breaks down. The thesis studies such
+situations in detail in the two-dimensional case. It relies on the
+asymptotic analysis of a certain type of "parameter-varying" F-L
+integral of the form $\int \exp(-s P(d,x)) A(d,x) \, dx$. The cases of
+interest are when either the phase term $P(d,x)$ or the amplitude term
+$A(d,x)$  exhibits a change of degree as $d$ approaches a degenerate
+direction. These are handled by a generalized version of the stationary
+phase and the coalescing saddle point method. Uniform expansions and
+local limit results are obtained.
+<p>
+<li>
+<a href="https://arxiv.org/abs/math/0003192" name="PeWi2002">
+Asymptotics of multivariate sequences I: smooth points of the singular variety</a> 
+by Robin Pemantle and Mark C. Wilson, 
+Journal of Combinatorial Theory A 97 (2002), 129-161.
+<p>
+This article treats
+the case of smooth points of $V$. It includes a detailed introduction
+to the project, discusses previous work on the topic and lays the
+groundwork for further papers by devising a taxonomy. Then it treats
+the most commonly occurring case, smooth points. Companion papers will
+treat  points of $V$ where the local geometry is more complicated, and
+for which other methods of analysis are not known. <p>Note: the <a
+href="http://www.sciencedirect.com/science?_ob=MImg&_imagekey=B6WHS-458NC34-N-2&_cdi=6858&_orig=browse&_coverDate=01%2F31%2F2002&_sk=999029998&view=c&wchp=dGLbVlb-zSkzk&_acct=C000011498&_version=1&_userid=2531991&md5=f13b37907fe932662c8406dbc1ed6957&ie=f.pdf">published
+version</a> (reprints are available) contains many errors, several the
+fault of the publisher. In particular, in Thm 3.5 there should be a
+minus sign in the denominator of the expression for the constant
+C_0.
+<p>
+
+<li>
+<a href="https://www.math.upenn.edu/~pemantle/papers/highpoles+pix.ps" name="nearly-polynomial">
+Generating functions with high-order poles are nearly polynomial
+</a> 
+by Robin Pemantle.
+Mathematics and computer science (Versailles, 2000),
+305--321. Trends in Mathematics, Birkhauser, Basel, 2000.
+<p>Explains why our multivariate asymptotic expansions sometimes
+have only finitely many terms, and hence are effectively
+computable.
+
+</ol>
+
+<h3> Papers using the basic theory in application areas </h3>
+<ol reversed=true>
+<li>
+<a href="https://arxiv.org/abs/1810.06170">
+Higher Dimensional Lattice Walks: Connecting Combinatorial and Analytic Behavior</a>
+by Stephen Melczer and Mark C. Wilson. To appear SIAM J. Discrete Math 2019+.
+<p>
+Subsumes results in earlier conference paper (FPSAC 2016). 
+We consider
+the enumeration of walks on the non-negative lattice $\mathbb{N}^d$, with steps
+defined by a set $S\subset\{âˆ’1,0,1\}^d - \{0\}$. Previous work in this area has
+established asymptotics for the number of walks in certain families of
+models by applying the techniques of analytic combinatorics in several
+variables (ACSV), where one encodes the generating function of a lattice
+path model as the diagonal of a multivariate rational function. Melczer
+and Mishna obtained asymptotics when the set of steps $S$ is symmetric
+over every axis; in this setting one can always apply the methods of
+ACSV to a multivariate rational function whose whose set of
+singularities is a smooth manifold (the simplest case). Here we go
+further, providing asymptotics for models with generating functions that
+must be encoded by multivariate rational functions with non-smooth
+singular sets. In the process, our analysis connects past work to deeper
+structural results in the theory of analytic combinatorics in several
+variables. One application is a closed form for asymptotics of models
+defined by step sets which are symmetric over all but one axis. As a
+special case, we apply our results when $d=2$ to give a rigorous proof of
+asymptotics conjectured by Bostan and Kauers; asymptotics for walks
+returning to boundary axes and the origin are also given.
+
+<li>
+<a href="" name="RWZ2019">Quiver Asymptotics: $\mathcal{N}=1$ Free Chiral Ring</a>
+by Sanjaye Ramgoolam, Mark C. Wilson and Ali Zahabi. Under review 2019.
+<p>
+The large $N$ generating functions for the counting of chiral operators
+in $\mathcal{N}=1$, four-dimensional quiver gauge theories have
+previously been obtained in terms of the weighted adjacency matrix of
+the quiver diagram. We introduce the methods of multi-variate asymptotic
+analysis to study this counting in the limit of large charges. We
+describe a Hagedorn phase transition associated with this asymptotics,
+which refines and generalizes known results on the 2-matrix harmonic
+oscillator. Explicit results are obtained for two infinite classes of
+quiver theories, namely the generalized clover quivers and affine
+$\mathbb{C}^3/\tilde{A}_n$ orbifold quivers.
+
+<li>
+<a href="https://arxiv.org/pdf/1402.1230.pdf" name = "MM2016">Asymptotic lattice path enumeration using diagonals</a>
+by Stephen Melczer and Marni Mishna. Algorithmica 75, 782-811, 2016.
+<p>
+Uses the smooth point theory to deal with highly symmetric walks confined to 
+the positive orthant.
+</p>
+<li>
+<a href="Wils2015.pdf" name="Wils2015.pdf">Diagonal asymptotics for products of combinatorial classes</a> 
+by Mark C. Wilson. Combinatorics, Probability and Computing 24, 354-372, 2015 (Flajolet memorial issue).
+<p>
+We generalize and improve recent results by B\'{o}na and Knopfmacher and
+by Banderier and Hitczenko concerning the joint distribution of the sum
+and number of parts in tuples of restricted compositions. Specifically,
+we generalize the problem to general combinatorial classes and relax the
+requirement that the sizes of the compositions be equal. We extend the
+main explicit results to enumeration problems whose counting sequences
+are Riordan arrays.  In this framework, we give an alternative method
+for computing asymptotics in the supercritical case, which avoids explicit
+diagonal extraction and seems likely to be computationally more efficient.
+</p>
+<li> 
+<a href="https://repository.upenn.edu/dissertations/AAI3363259/" name="bressler-thesis">Quantum random walks on 
+the integer lattice via generating functions</a> 
+by Andrew Bressler. PhD thesis, U. Penn., 2009.
+<p>
+This thesis contains several early results from the papers below. It
+also includes exact asymptotics for a three-chirality walk on the line
+and the 2-D Hadamard walk, as well as a proof of Airy phenomena for the
+two-chirality walk. It concludes with a preliminary discussion of higher
+dimensions.
+</p>
+<li>
+<a href="https://arxiv.org/abs/0903.2967"> Random walk on the integer 
+lattice: examples and phenomena</a>
+by Andrew Bressler, Torin Greenwood, Robin Pemantle, and Marko Petkovsek.
+<p>
+We apply results from the previous <a href="BBBP2008">2-D QRW paper</a> 
+to compute limiting probability profiles for various quantum random walks 
+in one and two dimensions. Using analytic machinery we show some features of 
+the limit distribution that are not evident in an empirical intensity plot of 
+the time 10,000 distribution. Some conjectures are stated and computational 
+techniques are discussed as well.
+<li>
+<a href="https://arxiv.org/abs/0810.5495">Two-dimensional quantum random walk</a>
+by Yuliy Baryshnikov, Wil Brady, Andrew Bressler, and Robin Pemantle. Journal of Statistical 
+Physics 142 (2011), 78-107.
+<p>
+We analyze several families of two-dimensional quantum random walks. 
+The feasible region (the region where probabilities do not decay exponentially 
+with time) grows linearly with time, as is the case with one-dimensional QRW. 
+The limiting shape of the feasible region is, however, quite different. The 
+limit region turns out to be an algebraic set, which we characterize as the 
+rational image of a compact algebraic variety. We also compute the probability 
+profile within the limit region, which is essentially a negative power of the 
+Gaussian curvature of the same algebraic variety. 
+Our methods are based on analysis of the space-time generating function, 
+following the methods of the  <a href="#PeWi2002">first paper of Pemantle and Wilson</a>. 
+Some extensions to toral singularities are required.
+<li>  
+<a href="http://www.dmtcs.org/dmtcs-ojs/index.php/proceedings/article/download/dmAH0130/2160">
+Quantum random walks in one dimension via generating functions</a> 
+by Andrew Bressler and Robin Pemantle. Proceedings of International Conference
+on Analysis of Algorithms, Juan-les-Pins, 2007.
+<p>
+Extended abstract (full version to appear sometime).
+<li> 
+<a href="https://www.cs.auckland.ac.nz/~mcw/Research/mvGF/asymultseq/brady-thesis.pdf" name="brady-thesis">Quantum random walks on $\mathbb{Z}^2$</a> 
+by Wil Brady. MS thesis, U. Penn., 2007.
+<p>
+This thesis computes the asymptotic probability profile
+for nearest-neighbor quantum random walks in the two-dimensional
+integer lattice with various quantum coins (4x4 unitary matrices).
+A shape theorem is proved for the Hadamard coin (the standard choice).
+Analogous results for other coins, exhibiting an unexpectedly wide 
+range of visual phenomena, are verified numerically but not proved. 
+The numeric finite-time profiles are compared to pictures of the
+theoretically computed range of non-exponential decay.  The shapes
+are indeed the same.  Furthermore, plots of the normalized probabilities 
+in the non-exponential region turn out to have internal structure 
+that is mirrored in the rendering of the theoretically predicted 
+non-exponential decay region via point plotting.  This has led to
+followup work showing why both of these are essentially the same
+as a plot of the push-forward via the Gauss map of the surface measure 
+on the toral part of the pole variety.
+</p>
+
+</ol>
+
+
+<hr>
+<a name="citations"><h2>Applications of this project by others </h2></a>
+We try to update this a few times a year to give an idea of the variety of applications. There are many more citations, some of 
+which use the methods, while others only mention them. 
+A full list can be found using Google Scholar, for example.
+<a href="https://scholar.google.com/scholar?cites=7402797395537101902&as_sdt=2005&sciodt=0,5&hl=en">Citations to Pemantle-Wilson 2002</a> | 
+<a href="https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5360057537324835237&as_sdt=5">Citations to 2008 SIAM Review paper</a>
+ | 
+<a href=https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5815130491971714953&as_sdt=5+>Citations to 2013 book</a>
+
+<ul>
+<li> Sample publications directly using the results of this project
+<ul>
+<li> M. Kovacevic. Runlength-Limited Sequences and Shift-Correcting Codes: Asymptotic Analysis. IEEE Transactions on Information Theory 2019.
+<li> T. George. Limit shapes for cube groves with periodic conductances. 
+arxiv.org/abs/1711.00790.
+<li> J. Courtiel, S. Melczer, M.Mishna, K. Raschel. Weighted lattice walks and universality criteria. Journal of Combinatorial Theory A 2017.
+<li> R. Vidunas. Counting derangements and Nash equilibria. Annals of Combinatorics 2017.
+<li> J. Pantone. The Asymptotic Number of Simple Singular Vector Tuples of a Cubical Tensor. arxiv.org/abs/1605.06099
+<li> RF de Andrade, E Lundberg, B Nagle. Asymptotics of the extremal excedance set statistic. European Journal of Combinatorics 2015.
+<li> A. Straub, W. Zudilin. Positivity of rational functions and their diagonals. Journal of Approximation Theory 2015.
+<li> P Di Francesco, R Soto-Garrido. Arctic curves of the octahedron equation. Journal of Physics A 2014.
+<li>  I. Bena, M. Berkooz, J. de Boer, S. El-Showk, D. Scaling BPS solutions and pure-Higgs states. 
+Journal of High Energy Physics 2012.
+<li> Petersen, K. An adic dynamical system related to the Delannoy numbers.
+    Ergodic Theory and Dynamical Systems 32 (2012), 809-823.
+<li> M. Erickson, S. Fernando, K. Tran, Enumerating Rook and Queen Paths, 
+Bulletin of the Institute for Combinatorics and Its Applications 60 (2010), 37--48.
+<li>Noble, R. Asymptotics of a family of binomial sums. 
+Journal of Number Theory 130 (2010), 2561-2585. 
+<li> Sahlmann, H. Entropy calculation for a toy black hole. 
+Classical and Quantum Gravity, 200825 (5), art. no. 055004.
+<li> Kong, Y. Asymptotics of the monomer-dimer model on two-dimensional 
+semi-infinite lattices, Physical Review E 75, 051123 (2007) (13 pages).
+<li> Kong, Y. Monomer-dimer model in two-dimensional rectangular lattices with 
+fixed dimer density. Physical Review E 74, 061102 (2006) (15 pages).  
+<li> Corteel, S., Louchard, G., Pemantle, R. <a
+href="http://www.dmtcs.org/dmtcs-ojs/index.php/dmtcs/article/view/dm080112/1661"
+>Common intervals in permutations</a>. Discrete
+ Mathematics and Theoretical Computer Science 8 (2006), pp. 189-214.
+<li> Wormald, N. <a
+href="http://www.math.uwaterloo.ca/~nwormald/papers/hamtourn.pdf">Tournaments 
+with many Hamilton cycles</a>. Preprint, 2001.
+</ul>
+
+<!--
+
+<li> Publications  citing publications of this project
+<ul>
+<li> Xin Guo Ce, Zhou Yue. Residue Reduced Form of a Rational Function as an Iterated Laurent Series.
+Electronic Journal of Combinatorics 20 (2013), p47.
+<li> S.E. Venegas-Andraca. Quantum walks: a comprehensive review. 
+Quantum Information Processing, Springer, 2012.
+<li> S. Chen, M. Kauers, M.F. Singer. 
+Telescopers for rational and algebraic functions via residues.
+Proceedings of the 37th ISSAC (2012), 130-137.
+<li> J. De Loera,  R. Hemmecke, M. Koeppe.
+Algebraic and Geometric Ideas in the Theory of Discrete Optimization.
+SIAM, 2012.
+<li>Noble, R. Asymptotics of the weighted Delannoy numbers.
+International Journal of Number Theory 8 (2012), 175-188
+<li> Romik, D. Local extrema in random permutations and the structure of longest alternating subsequences.
+FPSAC'11 - 23rd International Conference on Formal Power Series and Algebraic Combinatorics, 825-834
+<li> Kauers, M., Zeilberger, D.	
+The computational challenge of enumerating high-dimensional rook walks.
+Advances in Applied Mathematics, 47 (2011), 813-819.
+<li>Guillemin, F.F., Leeuwaarden, J.S.H. 
+Rare event asymptotics for a random walk in the quarter plane.
+Queueing Syst. 67 (2011), 1-32 
+<li> Antal, T., Krapivsky, P.L. Exact solution of a two-type branching process: 
+Clone size distribution in cell division kinetics. Journal of Statistical Mechanics: Theory and Experiment, 
+2010 (7), art. no. P07028.
+<li> Chang, H., Fuchs, M. Limit theorems for phylogenetic trees. Journal
+of Mathematical Biology 60 (2010), 481-512.
+<li> Chamberland, M., Dilcher, K. A binomial sum related to Wolstenholme's theorem. 
+Journal of Number Theory 129 (2009), 2659-2672.
+<li> Flajolet, P., Sedgewick, R. Analytic Combinatorics. Cambridge, 2009.
+<li> Richard, C. Limit distributions and scaling functions. Lecture Notes in Physics, 
+775 (2009), 247-299.	
+<li>Merlini, D. Proper generating trees and their internal path length. Discrete Applied Mathematics 156 (2008), 627-646.
+<li>Baccherini, D., Merlini, D., Sprugnoli, R. Level generating trees and proper Riordan arrays. Applicable Analysis and 
+Discrete Mathematics 2 (2008), 69-91.
+<li>Egorychev, G.P., Zima, E.V.
+Integral Representation and Algorithms for Closed Form Summation
+(2008) Handbook of Algebra, 5, pp. 459-529. 
+<li>Stanley, R.P.
+Longest alternating subsequences of permutations
+(2008) Michigan Mathematical Journal, 57 (1), pp. 675-687. 
+<li> Grosskinsky, S. Equivalence of ensembles for two-species zero-range 
+invariant measures. Stochastic Processes and their Applications 118 (2008), 
+1322-1350. 
+<li> Baccherini, D., Merlini, D., Sprugnoli, R. Binary words excluding a pattern and proper Riordan arrays. 
+Discrete Mathematics 307 (2007), 1021-1037.
+<li> Tamm, M. V., Nechaev, S. K. Necklace-cloverleaf transition in associating RNA-like 
+diblock copolymers. Phys. Rev. E 75 (2007), 031904. 
+<li> Lladser, M. Uniqueness of polynomial cannonical representations (extended abstract)
+ 2007 Conference on Analysis of Algorithms, Discrete Mathematics and 
+ Theoretical Computer Science Proceedings, AH, 463-470, 2007.
+<li> Flajolet, P. Analytic combinatorics: a calculus of discrete structures.
+Proceedings of the eighteenth annual ACM-SIAM Symposium on Discrete algorithms 
+(2007), 137-148.
+<li>Lichtin, B. Uniform bounds for two variable real oscillatory integrals and 
+singularities of mappings. Journal fur die Reine und Angewandte Mathematik, 
+611 (2007), 1-73.
+<li> Dantas, W.G., De Oliveira, M.J., Stilck, J.F. 
+Asymptotic behavior of the entropy of chains placed on cylinders. 
+Physical Review E 76 (3), 031133.
+<li>Firro, G., Mansour, T., Wilson, M. C. Longest alternating subsequences in 
+pattern-restricted permutations. Electronic Journal of Combinatorics 14 (2007), R34.
+<li> Berenhaut, K.S., Foley, J.D. Explicit bounds for multidimensional linear 
+recurrences with restricted coefficients. Journal of Mathematical Analysis and 
+Applications 322 (2006), pp. 1159-1167. 
+<li> Gao, Z., Panario, D. Degree distribution of the greatest common divisor of 
+polynomials over F_q. Random Structures and Algorithms 29 (2006), pp. 26-37.  
+<li> Petersen, T.K., Speyer, D. An arctic circle theorem for Groves. Journal of 
+Combinatorial Theory. Series A 111 (2005), pp. 137-164.  
+<li> De Loera, J.A., Hemmecke, R., Tauzer, J., Yoshida, R. Effective lattice 
+point counting in rational convex polytopes. Journal of Symbolic Computation 38 
+(2004), pp. 1273-1302.
+<li> Baryshnikov, Y., Coffman Jr., E.G., Jelenkovic, P. Space filling and 
+depletion. Journal of Applied Probability 41 (2004), pp. 691-702.
+<li> Banderier, C., Flajolet, P., Schaeffer, G., Soria, M. Random maps, 
+coalescing saddles, singularity analysis, and Airy phenomena.  Random Structures
+ and Algorithms  19  (2001), pp 194-246. 
+</ul>
+-->
+<hr>
+<h2> <a name="software">Software</a></h2>
+<ul>
+<li> <a href="http://diagasympt.gforge.inria.fr/">Maple package and examples</a> implementing code of Melczer and Salvy for smooth asymptotics.
+<li> A Sage package by Alex Raichev has been incorporated into Sage from release 7.1 onward (some functionality may be broken in the latest Sage releases, and work is ongoing). The documentation is
+<a href="http://doc.sagemath.org/html/en/reference/asymptotic/sage/rings/asymptotic/asymptotics_multivariate_generating_functions.html"> available</a>.
+<li>  
+<a href="http://hans.math.upenn.edu/~pemantle/papers/20.mws/">Old Maple worksheets</a> dealing with 
+examples in the "Twenty combinatorial examples ..." paper.
+<p>
+
+
+<hr>
+Last updated: 2019-09-24</body></html>
