@@ -1,0 +1,155 @@
+BODY {
+ 	font-size: 11pt;
+ 	font-family: Verdana, Geneva, sans-serif;
+        margin-left: 180px;
+        margin-right:100px;
+        background-color: rgb(255,255,255);
+        color: rgb(0,0,0);
+}
+
+p {
+  font-style: normal; text-indent: 0; margin-bottom: 8px; padding:0; margin-top:8px; line-height: 112%; }
+
+
+A:link {color: rgb(0,0,255); font-weight: bold; text-decoration: none;}
+A:visited {color: rgb(255, 0, 0); font-weight: bold; text-decoration: none;}
+A:hover {text-decoration: underline; font-weight: bold;}
+A:active {color: rgb(255,165,0); font-weight: bold;}
+
+H1 {
+	text-align: center;
+
+	}
+
+      .style1 {
+        border-bottom: solid 0.05em #000099;
+        line-height: 0.9em;
+        margin-top: 0.1em;
+      }
+      
+      .style2 {
+        border: solid 1px silver;
+        padding: 0.1em;
+      }
+    
+      .style3 {
+        border: none;
+        background-color: transparent;
+        color: rgb(51,51,51);
+        padding: 0.1em;
+      }
+H2 {
+	text-align: left;
+}
+
+H2.style3 {
+        padding: 0.1em;
+        color: rgb(51,51,51); 
+        background-color: transparent;
+        border: none;
+}
+
+
+
+
+HR {
+	width: 100%;
+	background-color: rgb(128,0,128);
+}
+
+
+OL {
+	list-style-type: arabic;
+ 	
+}
+
+UL {
+   list-style-type: square;
+   margin-left: 5px;
+   padding: 6px;
+   
+}
+LI  {
+margin-bottom: 3px; margin-top: 3px;	
+}
+
+li.ball {
+background: url(Graphics/ball.purple.gif) left center no-repeat;
+padding-left: 15px;
+margin-bottom: 7px;
+}
+
+ #header {
+  top:0;
+  left:0;
+  height:5em;
+  color:#0099CC;
+  background-color: transparent;
+  width: 80%;
+  margin-bottom: 10px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:0;
+  }
+
+#sidebar{
+  padding:0;
+  color:rgb(255,255,255);
+  background: rgb(135,206,235);
+  border-top: none;
+  position:fixed;
+  float:left;
+  top:0;
+  left:0;
+  width:170px;
+  height:100%;
+  margin-right:0;
+}
+
+/*
+#sidebar:hover {
+        background-image: url(Graphics/aerial.jpg);
+        color: yellow;
+}
+*/
+
+#content { 
+  background-color: transparent;
+   }
+
+#footer {
+  width:100%;
+  text-align:center;
+  margin-top:20px;
+  padding: 0.5em;
+  color: rgb(0,0,153);
+  background-color:transparent;
+  }
+
+ /* #footer:hover {
+        background-image: url(Graphics/aerial.jpg);
+        color: yellow;
+
+}
+*/
+
+#datestamp {
+text-align:left;
+}
+
+#links {position: absolute; top: 10px; left: 0; width: 170px; height: 700px; 
+font: 13px helvetica; z-index: 100;}
+#links a {display: block; text-align: center; font-weight: bold; 
+   padding: 5px; margin: 0 0 1px; border-width: 0; 
+   text-decoration: none; color: rgb(255,255,255); background: #444;
+   border-right: 5px solid #505050;}
+#links a:hover {color: #411; background: #AAA;
+   border-right: 5px double white;}
+
+#links a span {display: none;}
+#links a:hover span {display: block;
+   position: relative; top: -20px; left: -10px; width: 125px;
+   padding: 0; z-index: 100;
+   color: #AAA; background: black;
+   font: 10px courier;  text-align: left;}
+
