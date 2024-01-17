@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>Software for ACSV | Home</title>
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/main.min.3e6a9ad6a142c9b3de5f17ddd00ff5ba66247acdb8e614b55cbfd5e137133481.css"/>
+
+</head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="/">Home</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="/pubs/">Publications</a>
+  
+    <a class="color-link nav-link" href="/apps/">Applications</a>
+  
+    <a class="color-link nav-link" href="/software/">Software</a>
+  
+    <a class="color-link nav-link" href="/acsvbook/">Textbook</a>
+  
+</div>
+</nav>
+
+        <div id="content" class="content-container">
+        
+
+<h1 class="post-title">Software for ACSV</h1>
+    <div>
+        <p>
+        <p>There are several software packages that help perform ACSV analyses.</p>
+<h2 id="sage_acsv">sage_acsv</h2>
+<p>The most useful package currently available is <strong>sage_acsv</strong>, which rigorously determines asymptotics for <em>combinatorial</em> generating functions (with non-negative power series coefficients) under generic assumptions that are rigorously verified by the software.</p>
+<p>Source code, installation instructions, and examples of using the package are <a href="https://github.com/ACSVMath/sage_acsv"><strong>available on GitHub</strong></a>.</p>
+<p><em>Main Reference:</em> <a href="https://arxiv.org/abs/2303.09603">Rigorous Analytic Combinatorics in Several Variables in SageMath</a> by Benjamin Hackl, Andrew Luo, Stephen Melczer, Jesse Selover, and Elaine Wong, 2023.</p>
+<h2 id="acsvhomotopyjl">ACSVHomotopy.jl</h2>
+<p>The <strong>ACSVHomotopy.jl</strong> package for Julia allows one to certify minimality of critical points on smooth singular varities using homotopy continuation techniques. Although not fully rigorous, the efficiency of Julia and dependent packages means that it is the only code that can currently study non-combinatorial generating functions.</p>
+<p>Installation instructions are <a href="https://github.com/ACSVMath/ACSVHomotopy"><strong>available on GitHub</strong></a>.</p>
+<p><em>Main Reference:</em> <a href="https://arxiv.org/abs/2208.04490">Homotopy Techniques for Analytic Combinatorics in Several Variables</a> by Kisun Lee, Stephen Melczer, Josip Smolčić, Proceedings of the 24th International Symposium SYNASC, 27–34, 2022.</p>
+<h2 id="kroneckermpl">Kronecker.mpl</h2>
+<p>The <strong>Kronecker.mpl</strong> package for Maple was written by Stephen Melczer and Bruno Salvy to accompany their paper on the complexity of smooth ACSV (on which the above packages are based). This package is largely superseded by sage_acsv.</p>
+<p>The package is <a href="https://github.com/ACSVMath/KroneckerMaple"><strong>hosted on GitHub</strong></a>.</p>
+<p><em>Main Reference:</em> <a href="https://arxiv.org/abs/1905.04187">Effective Coefficient Asymptotics of Multivariate Rational Functions via Semi-Numerical Algorithms for Polynomial Systems</a> by Stephen Melczer and Bruno Salvy, Journal of Symbolic Computation, Volume 103, 234–279, 2021.</p>
+<h2 id="other-code">Other Code</h2>
+<p>The book page for <a href="https://melczer.ca/textbook/">An Invitation to Analytic Combinatorics</a> has code working through the examples in that text.</p>
+<p>The book page for <a href="/book/">Analytic Combinatorics in Several Variables</a> will have code working through the examples in that text once it is complete in summer 2023.</p>
+<p>An older <a href="https://raichev.net/files/amgf_issac.pdf">Sage package</a> for computing the asymptotic contributions of certain critical points (without rigorously verifying asymptotic formulas) was developed by Alex Raichev. Note that this package is not actively maintained and has some broken functionality in current versions of Sage.</p>
+
+        </p>
+    </div>
+
+
+        
+
+<link rel="stylesheet" type="text/css" href="/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+        </div>
+    </body>
+</html>

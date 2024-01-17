@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The ACSV Project on Home</title>
+    <link>/</link>
+    <description>Recent content in The ACSV Project on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analytic Combinatorics in Several Variables</title>
+      <link>/acsvbook-errata/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/acsvbook-errata/</guid>
+      <description>This page collects the errata for the book Analytic Combinatorics in Several Variables, 2nd Editition by Robin Pemantle, Mark C. Wilson, and Stephen Melczer.
+Definition 7.27 and the preceding two paragraphs: the radius of the balls $B_{2\varepsilon}$ should be a new parameter $r$ and $\varepsilon=\varepsilon(r)$ in $\mathcal{M}_{\leq c-\varepsilon}$ should be arbitrarily small (and may depend on $r$). Errata for first edition Owing to an error by the publisher, early copies of the book are missing the list of symbols (which is very important for understanding the book).</description>
+    </item>
+    <item>
+      <title>Analytic Combinatorics in Several Variables</title>
+      <link>/acsvbook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/acsvbook/</guid>
+      <description>The book Analytic Combinatorics in Several Variables, 2nd Edition by Robin Pemantle, Mark C. Wilson, and Stephen Melczer will be published in February 2024 by Cambridge University Press. The book is aimed at researchers in analytic combinatorics, and fields in which enumerative questions arise that can be solved by the methods of analytic combinatorics.
+The manuscript for the second edition is available for download here.
+Available for purchase on the publisher website.</description>
+    </item>
+    <item>
+      <title>Applications of ACSV</title>
+      <link>/apps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/apps/</guid>
+      <description>A continuously updating list of ACSV citations from Google Scholar can be found here. Some of the papers making extensive use of ACSV methods in applications are listed below.
+Completing the Asymptotic Classification of Mostly Symmetric Short Step Walks in an Orthant by A. Kroitor and S. Melczer. Preprint, 2023.
+A class of weighted Delannoy numbers by J. M. Grau, A. M. Oller-Marcén, and J. L. Varona. Filomat 36.17, 5985-6007, 2022.</description>
+    </item>
+    <item>
+      <title>Publications in the Project</title>
+      <link>/pubs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/pubs/</guid>
+      <description>On this page we list the core papers which developed the area of ACSV as it is known today. Readers wanting pedagogical sources developing the theory of ACSV can consult
+An Invitation to Analytic Combinatorics: From One to Several Variables by Stephen Melczer. Texts &amp;amp; Monographs in Symbolic Computation, Springer International Publishing, 2021. (Introduction to the theory aimed at graduate students and those looking to enter the field. There is a computational focus with no prerequisite knowledge of geometry and topology assumed.</description>
+    </item>
+    <item>
+      <title>Software for ACSV</title>
+      <link>/software/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/software/</guid>
+      <description>There are several software packages that help perform ACSV analyses.
+sage_acsv The most useful package currently available is sage_acsv, which rigorously determines asymptotics for combinatorial generating functions (with non-negative power series coefficients) under generic assumptions that are rigorously verified by the software.
+Source code, installation instructions, and examples of using the package are available on GitHub.
+Main Reference: Rigorous Analytic Combinatorics in Several Variables in SageMath by Benjamin Hackl, Andrew Luo, Stephen Melczer, Jesse Selover, and Elaine Wong, 2023.</description>
+    </item>
+  </channel>
+</rss>
