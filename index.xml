@@ -13,7 +13,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/acsvbook-errata/</guid>
       <description>This page collects the errata for the book Analytic Combinatorics in Several Variables, 2nd Editition by Robin Pemantle, Mark C. Wilson, and Stephen Melczer.
-Definition 7.27 and the preceding two paragraphs: the radius of the balls $B_{2\varepsilon}$ should be a new parameter $r$ and $\varepsilon=\varepsilon(r)$ in $\mathcal{M}_{\leq c-\varepsilon}$ should be arbitrarily small (and may depend on $r$). Errata for first edition Owing to an error by the publisher, early copies of the book are missing the list of symbols (which is very important for understanding the book).</description>
+Section 4.2: The name $K$ is used for two different cones. The first is the union of rays emanating from the origin in the complex plane that make an angle between $-\pi/2$ and $\pi/2$ with the positive $x$-axis. The second is half as big: the angle has to be between $-\pi/(2k)$ and $\pi/(2k)$.</description>
     </item>
     <item>
       <title>Analytic Combinatorics in Several Variables</title>
