@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>PeWiMeCh03</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>PeWiMeCh04</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7482,35 +7482,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="This-notebook-contains-worked-examples-from-Chapter-3-of-the-text-Analytic-Combinatorics-in-Several-Variables-(2nd-edition)-by-Pemantle,-Wilson-and-Melczer.">This notebook contains worked examples from Chapter 3 of the text <em>Analytic Combinatorics in Several Variables (2nd edition)</em> by Pemantle, Wilson and Melczer.<a class="anchor-link" href="#This-notebook-contains-worked-examples-from-Chapter-3-of-the-text-Analytic-Combinatorics-in-Several-Variables-(2nd-edition)-by-Pemantle,-Wilson-and-Melczer.">¶</a></h3><p>Further details can be found on the book website at <a href="https://acsvproject.com/acsvbook/">https://acsvproject.com/acsvbook/</a> .</p>
+<h3 id="This-notebook-contains-worked-examples-from-Chapter-4-of-the-text-Analytic-Combinatorics-in-Several-Variables-(2nd-edition)-by-Pemantle,-Wilson-and-Melczer.">This notebook contains worked examples from Chapter 4 of the text <em>Analytic Combinatorics in Several Variables (2nd edition)</em> by Pemantle, Wilson and Melczer.<a class="anchor-link" href="#This-notebook-contains-worked-examples-from-Chapter-4-of-the-text-Analytic-Combinatorics-in-Several-Variables-(2nd-edition)-by-Pemantle,-Wilson-and-Melczer.">¶</a></h3><p>Further details can be found on the book website at <a href="https://acsvproject.com/acsvbook/">https://acsvproject.com/acsvbook/</a> .</p>
 <p>Example numbers match the published version.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># MAKE SURE TO RUN THIS CELL!</span>
-<span class="n">var</span><span class="p">(</span><span class="s1">'w x y z r s i j'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(w, x, y, z, r, s, i, j)</pre>
-</div>
 </div>
 </div>
 </div>
@@ -7521,7 +7494,28 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Asymptotic-Expansions-in-Sage">Asymptotic Expansions in Sage<a class="anchor-link" href="#Asymptotic-Expansions-in-Sage">¶</a></h3>
+<h3 id="Lemma-4.5---Compositional-Inverse">Lemma 4.5 - Compositional Inverse<a class="anchor-link" href="#Lemma-4.5---Compositional-Inverse">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Compute compositional inverse using a Newton iteration (which is computationally faster)</span>
+<span class="c1"># Function takes a function F as a series to order O(x^M)</span>
+<span class="k">def</span> <span class="nf">Newton</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">M</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="n">F</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">RR</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">floor</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="o">^</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span><span class="o">.</span><span class="n">polynomial</span><span class="p">(</span><span class="n">QQ</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SR</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span><span class="o">.</span><span class="n">polynomial</span><span class="p">(</span><span class="n">QQ</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7533,14 +7527,14 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Sage has good built-in support for (univariate) asymptotics through the AsymptoticRing structure</span>
-<span class="n">SCR</span> <span class="o">=</span> <span class="n">SR</span><span class="o">.</span><span class="n">subring</span><span class="p">(</span><span class="n">no_variables</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Create symbolic ring with no variables</span>
-<span class="n">A</span><span class="o">.&lt;</span><span class="n">n</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">AsymptoticRing</span><span class="p">(</span>
-    <span class="n">growth_group</span><span class="o">=</span><span class="s1">'QQ^n * n^QQ * log(n)^QQ'</span><span class="p">,</span> 
-    <span class="n">coefficient_ring</span><span class="o">=</span><span class="n">SCR</span><span class="p">,</span>
-    <span class="n">default_prec</span><span class="o">=</span><span class="mi">4</span>
-<span class="p">)</span>
-<span class="n">A</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Example inverting sin(x)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span><span class="o">.</span><span class="n">polynomial</span><span class="p">(</span><span class="n">QQ</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">Newton</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">"The inverse of </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">latex</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">"is the function whose series begins"</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">"The composition of these series equals"</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">SR</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">g</span><span class="p">))</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -7550,10 +7544,34 @@ a.anchor-link {
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>Asymptotic Ring &lt;QQ^n * n^QQ * log(n)^QQ * Signs^n&gt; over Symbolic Constants Subring</pre>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<html>\(\displaystyle \verb|The|\verb| |\verb|inverse|\verb| |\verb|of|\verb| |\verb|	| \sin\left(x\right) \verb| |\verb|=|\verb| |\verb|	| -\frac{1}{121645100408832000} x^{19} + \frac{1}{355687428096000} x^{17} - \frac{1}{1307674368000} x^{15} + \frac{1}{6227020800} x^{13} - \frac{1}{39916800} x^{11} + \frac{1}{362880} x^{9} - \frac{1}{5040} x^{7} + \frac{1}{120} x^{5} - \frac{1}{6} x^{3} + x\)</html>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<html>\(\displaystyle \verb|is|\verb| |\verb|the|\verb| |\verb|function|\verb| |\verb|whose|\verb| |\verb|series|\verb| |\verb|begins|\)</html>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<html>\(\displaystyle \frac{12155}{1245184} x^{19} + \frac{6435}{557056} x^{17} + \frac{143}{10240} x^{15} + \frac{231}{13312} x^{13} + \frac{63}{2816} x^{11} + \frac{35}{1152} x^{9} + \frac{5}{112} x^{7} + \frac{3}{40} x^{5} + \frac{1}{6} x^{3} + x\)</html>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<html>\(\displaystyle \verb|The|\verb| |\verb|composition|\verb| |\verb|of|\verb| |\verb|these|\verb| |\verb|series|\verb| |\verb|equals|\)</html>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<html>\(\displaystyle 1 x + \mathcal{O}\left(x^{20}\right)\)</html>
 </div>
 </div>
 </div>
@@ -7566,10 +7584,19 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># When n generates an AsymptoticRing, Sage automatically computes expansions</span>
-<span class="n">show</span><span class="p">(</span><span class="n">SR</span><span class="p">(</span><span class="s2">"sqrt(1+n)"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">n</span><span class="p">))</span>
-<span class="n">show</span><span class="p">(</span><span class="n">SR</span><span class="p">(</span><span class="s2">"(1+1/n)^n"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="o">^</span><span class="n">n</span><span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="n">SR</span><span class="p">(</span><span class="s2">"log(1+n)"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">n</span><span class="p">))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Do Newton iteration manually over symbolic field</span>
+<span class="n">var</span><span class="p">(</span><span class="s1">'a b c d x'</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">3</span> <span class="o">+</span> <span class="n">d</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">4</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="n">a</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="o">^</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">"The compositional inverse of a function whose series begins"</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">"is the function whose series begins"</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">"The composition of these series equals"</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">simplify_full</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -7582,20 +7609,49 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \sqrt{n + 1} \verb| |\verb|=|\verb| |\verb|	| n^{\frac{1}{2}} + \frac{1}{2} n^{-\frac{1}{2}} - \frac{1}{8} n^{-\frac{3}{2}} + \frac{1}{16} n^{-\frac{5}{2}} + O\!\left(n^{-\frac{7}{2}}\right)\)</html>
+<html>\(\displaystyle \verb|The|\verb| |\verb|compositional|\verb| |\verb|inverse|\verb| |\verb|of|\verb| |\verb|a|\verb| |\verb|function|\verb| |\verb|whose|\verb| |\verb|series|\verb| |\verb|begins|\)</html>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle {\left(\frac{1}{n} + 1\right)}^{n} \verb| |\verb|=|\verb| |\verb|	| e - \frac{1}{2} \, e n^{-1} + \frac{11}{24} \, e n^{-2} - \frac{7}{16} \, e n^{-3} + O\!\left(n^{-4}\right)\)</html>
+<html>\(\displaystyle d x^{4} + c x^{3} + b x^{2} + a x\)</html>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \log\left(n + 1\right) \verb| |\verb|=|\verb| |\verb|	| \log\left(n\right) + n^{-1} - \frac{1}{2} n^{-2} + \frac{1}{3} n^{-3} - \frac{1}{4} n^{-4} + O\!\left(n^{-5}\right)\)</html>
+<html>\(\displaystyle \verb|is|\verb| |\verb|the|\verb| |\verb|function|\verb| |\verb|whose|\verb| |\verb|series|\verb| |\verb|begins|\)</html>
 </div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<html>\(\displaystyle {(\frac{1}{a})} x + {(-\frac{b}{a^{3}})} x^{2} + {(\frac{2 \, b^{2}}{a^{5}} - \frac{c}{a^{4}})} x^{3} + {(-\frac{5 \, b^{3}}{a^{7}} + \frac{5 \, b c}{a^{6}} - \frac{d}{a^{5}})} x^{4} + \mathcal{O}\left(x^{5}\right)\)</html>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<html>\(\displaystyle \verb|The|\verb| |\verb|composition|\verb| |\verb|of|\verb| |\verb|these|\verb| |\verb|series|\verb| |\verb|equals|\)</html>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<html>\(\displaystyle x + \mathcal{O}\left(x^{5}\right)\)</html>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Example-4.8">Example 4.8<a class="anchor-link" href="#Example-4.8">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7607,273 +7663,23 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># The package can compute asymptotic expansions of meromorphic functions from its singularities</span>
-<span class="c1"># using the results discussed in this chapter</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">SCR</span> <span class="o">=</span> <span class="n">SR</span><span class="o">.</span><span class="n">subring</span><span class="p">(</span><span class="n">no_variables</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Create symbolic ring with no variables</span>
+<span class="n">A</span><span class="o">.&lt;</span><span class="n">n</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">AsymptoticRing</span><span class="p">(</span>
+    <span class="n">growth_group</span><span class="o">=</span><span class="s1">'QQ^n * n^QQ * log(n)^QQ'</span><span class="p">,</span> 
+    <span class="n">coefficient_ring</span><span class="o">=</span><span class="n">SCR</span><span class="p">,</span>
+    <span class="n">default_prec</span><span class="o">=</span><span class="mi">4</span>
+<span class="p">)</span>
+
+<span class="c1"># Compute an asymptotic expansion</span>
 <span class="k">def</span> <span class="nf">GF</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">z</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">asm</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">coefficients_of_generating_function</span><span class="p">(</span>
     <span class="n">function</span><span class="o">=</span><span class="n">GF</span><span class="p">,</span>
-    <span class="n">singularities</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,),</span>
-    <span class="n">precision</span><span class="o">=</span><span class="mi">3</span>
-<span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">"[z^n]"</span><span class="p">,</span> <span class="n">SR</span><span class="p">(</span><span class="s2">"1/((1-2*z)^2*(1+z))"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">asm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \verb|[z^n]| \frac{1}{{\left(2 \, z - 1\right)}^{2} {\left(z + 1\right)}} \verb| |\verb|=|\verb| |\verb|	| \frac{2}{3} 2^{n} n + \frac{8}{9} 2^{n} + O\!\left(2^{n} n^{-2}\right)\)</html>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># It can also compute expansions near logarithmic and algebraic singularities using transfer theorems</span>
-<span class="k">def</span> <span class="nf">harmonic</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="o">-</span> <span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
-
-<span class="n">asm</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">coefficients_of_generating_function</span><span class="p">(</span>
-    <span class="n">function</span><span class="o">=</span><span class="n">harmonic</span><span class="p">,</span>
-    <span class="n">singularities</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
-    <span class="n">precision</span><span class="o">=</span><span class="mi">10</span>
-<span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">"[z^n]"</span><span class="p">,</span> <span class="n">SR</span><span class="p">(</span><span class="s2">"- log(1 - z) / (1 - z)"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">asm</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">catalan</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">)</span>
-<span class="n">asm</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">coefficients_of_generating_function</span><span class="p">(</span>
-    <span class="n">function</span><span class="o">=</span><span class="n">catalan</span><span class="p">,</span>
-    <span class="n">singularities</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,),</span>
-    <span class="n">precision</span><span class="o">=</span><span class="mi">3</span>
-<span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">"[z^n]"</span><span class="p">,</span> <span class="n">SR</span><span class="p">(</span><span class="s2">"(1-sqrt(1-4*z))/(2*z)"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">asm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \verb|[z^n]| \frac{\log\left(-z + 1\right)}{z - 1} \verb| |\verb|=|\verb| |\verb|	| \log\left(n\right) + \gamma_E + \frac{1}{2} n^{-1} - \frac{1}{12} n^{-2} + \frac{1}{120} n^{-4} + O\!\left(n^{-5} \log\left(n\right)\right)\)</html>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \verb|[z^n]| -\frac{\sqrt{-4 \, z + 1} - 1}{2 \, z} \verb| |\verb|=|\verb| |\verb|	| \frac{1}{\sqrt{\pi}} 4^{n} n^{-\frac{3}{2}} - \frac{9}{8 \, \sqrt{\pi}} 4^{n} n^{-\frac{5}{2}} + \frac{145}{128 \, \sqrt{\pi}} 4^{n} n^{-\frac{7}{2}} + O\!\left(4^{n} n^{-4}\right)\)</html>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Partial-Fractions-and-Residues">Partial Fractions and Residues<a class="anchor-link" href="#Partial-Fractions-and-Residues">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Sage can compute partial fraction decompositions for rational functions</span>
-<span class="n">F</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">z</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="o">*</span><span class="n">z</span><span class="o">^</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">13</span><span class="o">*</span><span class="n">z</span><span class="o">^</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="o">^</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">z</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">partial_fraction</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle -\frac{3 \, z + 4}{6 \, z^{5} - 13 \, z^{4} + 4 \, z^{3} + 6 \, z^{2} - 2 \, z - 1} \verb| |\verb|=|\verb| |\verb|	| \frac{243}{64 \, {\left(3 \, z + 1\right)}} - \frac{40}{27 \, {\left(2 \, z + 1\right)}} - \frac{907}{1728 \, {\left(z - 1\right)}} + \frac{83}{144 \, {\left(z - 1\right)}^{2}} - \frac{7}{12 \, {\left(z - 1\right)}^{3}}\)</html>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># It can also compute residues</span>
-<span class="n">F</span> <span class="o">=</span> <span class="n">tan</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">"The residue of </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="s2">" at z = pi/2 is"</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">residue</span><span class="p">(</span><span class="n">z</span><span class="o">==</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \verb|The|\verb| |\verb|residue|\verb| |\verb|of|\verb| |\verb|	| \tan\left(z\right) \verb| |\verb|at|\verb| |\verb|z|\verb| |\verb|=|\verb| |\verb|pi/2|\verb| |\verb|is| -1\)</html>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Example-3.8---Surjections">Example 3.8 - Surjections<a class="anchor-link" href="#Example-3.8---Surjections">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Note that Sage does not know there is an exponentially smaller error</span>
-<span class="k">def</span> <span class="nf">surjection</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
-
-<span class="n">asm</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">coefficients_of_generating_function</span><span class="p">(</span>
-    <span class="n">function</span><span class="o">=</span><span class="n">surjection</span><span class="p">,</span>
-    <span class="n">singularities</span><span class="o">=</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">),),</span>
-    <span class="n">precision</span><span class="o">=</span><span class="mi">10</span>
-<span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">"[z^n]"</span><span class="p">,</span> <span class="n">SR</span><span class="p">(</span><span class="s2">"1/(2-exp(z))"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">asm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \verb|[z^n]| -\frac{1}{e^{z} - 2} \verb| |\verb|=|\verb| |\verb|	| \frac{1}{2 \, \log\left(2\right)} \left(\frac{1}{\log\left(2\right)}\right)^{n} + O\!\left(\left(\frac{1}{\log\left(2\right)}\right)^{n} n^{-9}\right)\)</html>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Lemma-3.10---Basic-Scale">Lemma 3.10 - Basic Scale<a class="anchor-link" href="#Lemma-3.10---Basic-Scale">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># These asymptotic expansions can be computed automatically in Sage</span>
-<span class="k">def</span> <span class="nf">algsing</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="n">asm</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">coefficients_of_generating_function</span><span class="p">(</span>
-    <span class="n">function</span><span class="o">=</span><span class="n">algsing</span><span class="p">,</span>
-    <span class="n">singularities</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
-    <span class="n">precision</span><span class="o">=</span><span class="mi">10</span>
-<span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">"[z^n]"</span><span class="p">,</span> <span class="n">SR</span><span class="p">(</span><span class="s2">"(1-z)^(-3/2)"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">asm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \verb|[z^n]| \frac{1}{{\left(-z + 1\right)}^{\frac{3}{2}}} \verb| |\verb|=|\verb| |\verb|	| \frac{2}{\sqrt{\pi}} n^{\frac{1}{2}} + \frac{3}{4 \, \sqrt{\pi}} n^{-\frac{1}{2}} - \frac{7}{64 \, \sqrt{\pi}} n^{-\frac{3}{2}} + \frac{9}{512 \, \sqrt{\pi}} n^{-\frac{5}{2}} + \frac{59}{16384 \, \sqrt{\pi}} n^{-\frac{7}{2}} - \frac{483}{131072 \, \sqrt{\pi}} n^{-\frac{9}{2}} - \frac{2323}{2097152 \, \sqrt{\pi}} n^{-\frac{11}{2}} + \frac{42801}{16777216 \, \sqrt{\pi}} n^{-\frac{13}{2}} + \frac{923923}{1073741824 \, \sqrt{\pi}} n^{-\frac{15}{2}} - \frac{30055311}{8589934592 \, \sqrt{\pi}} n^{-\frac{17}{2}} + O\!\left(n^{-\frac{19}{2}}\right)\)</html>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Example-3.11---Darboux-Example">Example 3.11 - Darboux Example<a class="anchor-link" href="#Example-3.11---Darboux-Example">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># These asymptotic expansions can be computed automatically in Sage</span>
-<span class="k">def</span> <span class="nf">EvenCycles</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="p">)</span>
-
-<span class="n">asm</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">coefficients_of_generating_function</span><span class="p">(</span>
-    <span class="n">function</span><span class="o">=</span><span class="n">EvenCycles</span><span class="p">,</span>
     <span class="n">singularities</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
     <span class="n">precision</span><span class="o">=</span><span class="mi">3</span>
 <span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">"[z^n]"</span><span class="p">,</span> <span class="n">SR</span><span class="p">(</span><span class="s2">"exp(-z/2)/sqrt(1-z)"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">asm</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">"[z^n]"</span><span class="p">,</span> <span class="n">SR</span><span class="p">(</span><span class="s2">"(1-z)^(-1/2)"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">asm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7886,253 +7692,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \verb|[z^n]| \frac{e^{\left(-\frac{1}{2} \, z\right)}}{\sqrt{-z + 1}} \verb| |\verb|=|\verb| |\verb|	| \left(\frac{e^{\left(-\frac{1}{2}\right)}}{\sqrt{\pi}}\right) n^{-\frac{1}{2}} + \left(-\frac{3 \, e^{\left(-\frac{1}{2}\right)}}{8 \, \sqrt{\pi}}\right) n^{-\frac{3}{2}} + \left(\frac{e^{\left(-\frac{1}{2}\right)}}{128 \, \sqrt{\pi}}\right) n^{-\frac{5}{2}} + O\!\left(n^{-\frac{7}{2}}\right)\)</html>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Example-3.13---2-Regular-Graphs">Example 3.13 - 2-Regular Graphs<a class="anchor-link" href="#Example-3.13---2-Regular-Graphs">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># These asymptotic expansions can be computed automatically in Sage</span>
-<span class="k">def</span> <span class="nf">TwoRegular</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="n">z</span><span class="o">^</span><span class="mi">2</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="p">)</span>
-
-<span class="n">asm</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">coefficients_of_generating_function</span><span class="p">(</span>
-    <span class="n">function</span><span class="o">=</span><span class="n">TwoRegular</span><span class="p">,</span>
-    <span class="n">singularities</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
-    <span class="n">precision</span><span class="o">=</span><span class="mi">3</span>
-<span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">"[z^n]"</span><span class="p">,</span> <span class="n">SR</span><span class="p">(</span><span class="s2">"exp(-z/2)/sqrt(1-z)"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">asm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \verb|[z^n]| \frac{e^{\left(-\frac{1}{2} \, z\right)}}{\sqrt{-z + 1}} \verb| |\verb|=|\verb| |\verb|	| \left(\frac{e^{\left(-\frac{3}{4}\right)}}{\sqrt{\pi}}\right) n^{-\frac{1}{2}} + \left(-\frac{5 \, e^{\left(-\frac{3}{4}\right)}}{8 \, \sqrt{\pi}}\right) n^{-\frac{3}{2}} + \left(\frac{e^{\left(-\frac{3}{4}\right)}}{128 \, \sqrt{\pi}}\right) n^{-\frac{5}{2}} + O\!\left(n^{-\frac{7}{2}}\right)\)</html>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Example-3.16---Catalan-Numbers">Example 3.16 - Catalan Numbers<a class="anchor-link" href="#Example-3.16---Catalan-Numbers">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Copied from above</span>
-<span class="k">def</span> <span class="nf">catalan</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">)</span>
-
-<span class="n">asm</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">coefficients_of_generating_function</span><span class="p">(</span>
-    <span class="n">function</span><span class="o">=</span><span class="n">catalan</span><span class="p">,</span>
-    <span class="n">singularities</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,),</span>
-    <span class="n">precision</span><span class="o">=</span><span class="mi">3</span>
-<span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">"[z^n]"</span><span class="p">,</span> <span class="n">SR</span><span class="p">(</span><span class="s2">"(1-sqrt(1-4*z))/(2*z)"</span><span class="p">),</span> <span class="s2">" = </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">asm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \verb|[z^n]| -\frac{\sqrt{-4 \, z + 1} - 1}{2 \, z} \verb| |\verb|=|\verb| |\verb|	| \frac{1}{\sqrt{\pi}} 4^{n} n^{-\frac{3}{2}} - \frac{9}{8 \, \sqrt{\pi}} 4^{n} n^{-\frac{5}{2}} + \frac{145}{128 \, \sqrt{\pi}} 4^{n} n^{-\frac{7}{2}} + O\!\left(4^{n} n^{-4}\right)\)</html>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Example-3.18---Ordered-Set-Partitions">Example 3.18 - Ordered Set Partitions<a class="anchor-link" href="#Example-3.18---Ordered-Set-Partitions">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
-<span class="n">F</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
-<span class="n">coeffs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span><span class="o">.</span><span class="n">polynomial</span><span class="p">(</span><span class="n">QQ</span><span class="p">))</span>
-<span class="n">asm</span> <span class="o">=</span> <span class="n">n</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"We have shown in the book that"</span><span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">"[z^n]"</span><span class="p">,</span> <span class="n">SR</span><span class="p">(</span><span class="s2">"exp(z/(1-z))"</span><span class="p">),</span> <span class="s2">" ~ </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">asm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>We have shown in the book that
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \verb|[z^n]| e^{\left(-\frac{z}{z - 1}\right)} \verb| |\verb|~|\verb| |\verb|	| \frac{e^{\left(2 \, \sqrt{n} - \frac{1}{2}\right)}}{2 \, \sqrt{\pi} n^{\frac{3}{4}}}\)</html>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Here we plot the ratio of the EGF coefficients to the predicted asymtptotic behaviour</span>
-<span class="n">line</span><span class="p">([[</span><span class="n">k</span><span class="p">,</span><span class="n">coeffs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">/</span><span class="n">asm</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">k</span><span class="p">)]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)])</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
-<div class="jp-RenderedImage jp-OutputArea-output jp-OutputArea-executeResult" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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/yd98ol0773SPfdYoQ4AADgTh1w9ZOtW6YorrHPlRo+27rs6fz5hDgAApyPQecBnn0mzZ0sXXyz9/e/Sq69aFwXOzra7MgAA0Bk45Opyf/6zdTHgffukn/1MKiyUkpPtrgoAAHQmZuhcqqrKOk9u4kTp7LOt68vdey9hDgAAN2KGzoXeftualduzR/r5z6W775YSEuyuCgAAdBVm6Fykvl766U+lvDxrocOmTdYsHWEOAAB3Y4bOJT79VJo2TXrlFevWXfPmSYmMLgAAnsB/+S6waZP0j/8oRSLSypXSlVfaXREAADidHH/INRQKKRgMKjc31+5SbPHb31qHWM86SyopIcwBAOBFPmOMsbuIzhCJRBQIBBQOh+X3++0up8vV1kozZ1r3Xr39duk//oPbdgEA4FUccnWgzz6TvvlNadUqackS6aab7K4IAADYiUDnMAcOSFOmSNu3W+fLffWrdlcEAADsRqBzkI8+kiZNsla0vvGGlJNjd0UAACAeOH5RhFds3WotfqipsW7nRZgDAABRBDoHWLeu8RZea9dKgwbZXREAAIgnBLo498470uTJ0oUXSm++KWVm2l0RAACIN5xDF8d277bOmbvgAunllyUPXI0FAAB0ADN0cWrfPulrX5N69bJu50WYAwAAbSHQxaEDB6wwV18vFRdb584BAAC0hUOucaayUrrqKivUrV4t9e9vd0UAACDeEejiSG2tdO210s6d0uuvS0OG2F0RAABwAgJdHLn3Xumtt6xbeo0aZXc1AADAKQh0ceK556SHH5b+4z+kyy6zuxoAAOAkLIqIA7t2STffLH3rW9Kdd9pdDQAAcJoOBbqFCxcqOztbqampysnJ0erVq0/YPxQKadiwYUpLS9OQIUP01FNPNXv9ySeflM/na9Gqq6s7Up6jHD0q/dM/SX37Sr/5jeTz2V0RAABwmpgPua5YsUKFhYVauHChJkyYoF//+teaPHmytm/frgEDBrTov2jRIs2ZM0ePP/64cnNztX79et12223q3bu3rr766oZ+fr9fO3fubPbe1NTUDvwk5zBG+t73pPffl95+W+rZ0+6KAACAE/mMMSaWN4wdO1ajRo3SokWLGvYNGzZM1157rYqKilr0z8vL04QJE/SLX/yiYV9hYaE2btyoNWvWSLJm6AoLC3X48OEO/gwpEokoEAgoHA7L75Cr8D7+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
-"/>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Example-3.19---involutions">Example 3.19 - involutions<a class="anchor-link" href="#Example-3.19---involutions">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
-<span class="n">F</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">z</span> <span class="o">+</span> <span class="n">z</span><span class="o">^</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">coeffs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span><span class="o">.</span><span class="n">polynomial</span><span class="p">(</span><span class="n">QQ</span><span class="p">))</span>
-<span class="n">asm</span> <span class="o">=</span> <span class="n">n</span><span class="o">^</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"We have shown in the book that"</span><span class="p">)</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">"[z^n]"</span><span class="p">,</span> <span class="n">SR</span><span class="p">(</span><span class="s2">"exp(z + z^2/2)"</span><span class="p">),</span> <span class="s2">" ~ </span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">asm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>We have shown in the book that
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>\(\displaystyle \verb|[z^n]| e^{\left(\frac{1}{2} \, z^{2} + z\right)} \verb| |\verb|~|\verb| |\verb|	| \frac{1}{2} \, \sqrt{2} n^{\frac{1}{2} \, n} e^{\left(-\frac{1}{2} \, n + \sqrt{n} - \frac{1}{4}\right)}\)</html>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Here we plot the ratio of the EGF coefficients to the predicted asymtptotic behaviour</span>
-<span class="n">line</span><span class="p">([[</span><span class="n">k</span><span class="p">,</span><span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">coeffs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">/</span><span class="n">asm</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">k</span><span class="p">)]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)])</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
-<div class="jp-RenderedImage jp-OutputArea-output jp-OutputArea-executeResult" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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0QEAgIYj0AWBESPMQGeP2YwAAKClEeiCwIgR5k0RX34Z6J4AAAArItAFgWHDpPBwhl0BAEDDEOiCQLt25o4SBDoAANAQBLogwTw6AADQUAS6IDFihPT111J2dqB7AgAArMbygc7KW39VN3y4uVMEw64AAMBfbP0VRK67ThowQMrICHRPAACAlVi+QmcnI0awYwQAAPBfRKA7gCojR0rPPSdt3Ci1b+99g0T37lLPngHqGAAACGoMuQaR06elrl2l8+drvtehg3nTRHR0y/cLAAAENyp0QSQ2Vjp6VCosNF87HObjN9+Yw7EbNkh33x24/gEAgOBEhc4iRoyQIiKk994LdE8AAECw4aYIi7j/funvf5e++irQPQEAAMHG70C3fft2paSkKCEhQQ6HQxs3brzkZ7Zt26ZBgwYpOjpavXr10ksvvVSjzXPPPac+ffqoVatWSkxM1OzZs3W+tslkIeqOO6SYGGnZskD3BAAABBu/A11JSYmSk5O1ZMkSn9pnZ2fr1ltv1c0336y9e/fqkUce0W9+8xutW7fO0+a1117TvHnz9Nhjj+ngwYNatmyZ1qxZo7S0NH+7Z1utWkn33CO98opUXh7o3gAAgGDSqDl0DodDGzZs0MSJE+tsM3fuXG3atEkHDx70nJsxY4b27dunrKwsSdJDDz2kgwcP6r1qE8T+/d//XTt37tQHH3zgU1/sPodOklwuaeBA6fXXpdtuC3RvAABAsGj2OXRZWVkaO3as17lx48Zp9+7dunDhgiRp+PDh2rNnj3bu3ClJOnLkiDIzMzVhwoQ6/25paamKioq8Dru79lpp8GDpv/870D0BAADBpNkDXUFBgeLi4rzOxcXFqby8XCdPnpQkTZ48WU899ZSGDx+uyMhI9e7dW6NGjdK8efPq/LuLFi1STEyM50hMTGzW3xEs7r9fevNNKS8v0D0BAADBokXucnW4F1T7J/cor/v81q1btXDhQr3wwgv65JNPtH79er3xxht66qmn6vybaWlpKiws9BzHjh1rvh8QRO6+21xcmP1eAQCAW7MvLBwfH6+CggKvc8ePH1dERIQ6dOggSXr00Uc1depU3X///ZKka665RiUlJfrVr36l+fPnKyysZu50Op1yOp3N3f2g066dNGmSebdrWppUyz8aAAAQYpo9DgwdOlRbtmzxOrd582YNHjxYkZGRkqRz587VCG3h4eEyDEM2Wfe4Sd1/v5SdLb3/fqB7AgAAgoHfga64uFgul0sul0uSuSyJy+VSbm6uJHModNq0aZ72M2bM0NGjRzVnzhwdPHhQy5cv17Jly/Twww972qSkpOjFF1/U6tWrlZ2drS1btujRRx/VbbfdpvDw8Eb+RPsZOlTq109aujTQPQEAAMHA7yHX3bt3a9SoUZ7Xc+bMkSRNnz5dGRkZys/P94Q7SerZs6cyMzM1e/ZspaenKyEhQc8//7xuv/12T5sFCxbI4XBowYIFysvLU6dOnZSSkqKFCxc25rfZlsMhPfCANG+edPKk1LFjoHsEAAACib1cLerkSemKK6SuXc0Fh++5R7rqqkD3CgAABAJT6i2qY0fpgw+kkSOl556TfvAD6cYbpSVLpBMnAt07AADQkqjQ2cD330tvvCG9+qqUmWnu+XrggNS5c6B7BgAAWgIVOhto1Uq6805zS7CcHKmiQlqwINC9AgAALYVAZzNdu0qPP25uD/bPG5EBAIDNMeRqQxcuSAMGSPHx0t//bt4VCwAA7MvyFbr09HQlJSVpyJAhge5K0IiMlJ59Vtq6VdqwIdC9AQAAzY0KnY3deqv0+efmDRLR0YHuDQAAaC6Wr9Chbs8+Kx07Zi5rAgAA7ItAZ2N9+0qpqdLChVJ+fqB7AwAAmguBzuYee0xyOqX58wPdEwAA0FwIdDbXvr305JNSRob0/vuB7g0AAGgOBLoQ8KtfSUOGSD/8oXTbbdKuXYHuEQAAaEoEuhAQESF99JH0P/8jffGFdP310vjx0o4dge4ZAABoCgS6EBERIU2bZi5hsmqVlJsrDRsm/fjH0tmzge4dAABoDAJdiAkPlyZPlvbvl/76V7NK98tfSvZYjRAAgNBEoAtRYWHSHXeYw7Dr1kl//GOgewQAABrK8oGOrb8a52c/k+bNM4/33gt0bwAAQEOw9RdUUWHOpXO5pD17pG7dAt0jAADgD8tX6NB44eHmjRJt2ki33y6dPx/oHgEAAH8Q6CBJ6thRWr/evFnioYcC3RsAAOAPAh08rrtOeukladkyacECqaQk0D0CAAC+INDBy733mvu//v73Uu/e0vPPS6Wlge4VAACoD4EONTz+uLmjxK23SrNnS1ddJf33f0sXLgS6ZwAAoDYEOtSqZ09p+XJzZ4mbbpIeeEC6+mrzNQAACC4EOtSrTx9p9Wpp3z4pOloaOVL6xz8C3SsAAFAdgQ4+GTBAev996YorpFGjpE8+CXSPAACAG4EOPuvQwdxN4sorpR/9SNq5M9A9AgAAEoEOfmrfXtqyRUpKkkaPlj76KNA9AgAAlg907OXa8tq1k955x1y3btw46a23At0jAABCG3u5osHOnZN+/nMz3P3wh9ITT0jDhwe6VwAAhB7LV+gQOK1bm9W5DRukkyelm2+WxoyRduwIdM8AAAgtBDo0isMhTZwo7d0rrV0r5edLw4ZJP/6xlJ0d6N4BABAaCHRoEmFh0u23m2vUrVlj7jQxaJCUmRnongEAYH8EOjSpsDDprrvMdeqGDZN+8hNzb9iKikD3DAAA+yLQoVm0by+9/rr05JPSU09JEyZIp04FulcAANiT34Fu+/btSklJUUJCghwOhzZu3HjJz2zbtk2DBg1SdHS0evXqpZdeeqlGmzNnzig1NVVdunRRdHS0+vXrp0zG6ywtLExasEB6+21p925zCPb//i/QvQIAwH78DnQlJSVKTk7WkiVLfGqfnZ2tW2+9VTfffLP27t2rRx55RL/5zW+0bt06T5uysjKNGTNGOTk5Wrt2rb744gstXbpUXbt29bd7CEJjx5pDsJ07S0OHmsOwLEgMAEDTadQ6dA6HQxs2bNDEiRPrbDN37lxt2rRJBw8e9JybMWOG9u3bp6ysLEnSSy+9pD/84Q/6/PPPFRkZ2aC+sA5d8Csvl1avlhYtkg4ckG65RXrkETPwORyB7h0AANbV7HPosrKyNHbsWK9z48aN0+7du3XhwgVJ0qZNmzR06FClpqYqLi5O/fv319NPP62KembSl5aWqqioyOtAcIuIkO65R9q/X9q4UTp/3lzeZPBgadu2QPcOAADravZAV1BQoLi4OK9zcXFxKi8v18mTJyVJR44c0dq1a1VRUaHMzEwtWLBAf/rTn7Rw4cI6/+6iRYsUExPjORITE5v1d6DphIVJP/2pOZ/u3Xel6Ghp5EjpV7+SzpwJdO8AALCeFrnL1XHReJp7lNd9vrKyUp07d9bLL7+sQYMGafLkyZo/f75efPHFOv9mWlqaCgsLPcexY8ea7wegWTgc0o9+JH3wgfTii+ZwbL9+0rp1kj02pAMAoGU0e6CLj49XQUGB17njx48rIiJCHTp0kCR16dJFP/jBDxQeHu5p069fPxUUFKisrKzWv+t0OtWuXTuvA9YUFibNmCEdPCjdcIN0xx3mHrF5eYHuGQAA1tDsgW7o0KHasmWL17nNmzdr8ODBnhsghg0bpsOHD6uystLT5tChQ+rSpYuioqKau4sIEl27mvvCrl1rDsdeeaX0r/9q3kABAADq5negKy4ulsvlksvlkmQuS+JyuZSbmyvJHAqdNm2ap/2MGTN09OhRzZkzRwcPHtTy5cu1bNkyPfzww542Dz74oE6dOqWZM2fq0KFDevPNN/X0008rNTW1kT8PVuNwmFuIHTxormH3t79JV19t3jzxzjsMxQIAUBu/ly3ZunWrRo0aVeP89OnTlZGRoXvvvVc5OTnaunWr571t27Zp9uzZ+uyzz5SQkKC5c+dqxowZXp/PysrS7Nmz5XK51LVrV913332aO3eu1zBsfVi2xJ7Kysy9Yf/8Z2nvXikpSZo/X5o82RyqBQAAjVyHLpgQ6OzNMKTt26U//EF6803puuuk3/1OGj060D0DACDwqHHAEhwOacQI6Y03zLtinU5pzBhzUeK9ewPdOwAAAotAB8sZPtzcOmzDBunYMbNaN3mytGMHc+wAAKGJQAdLcjikiRPNXSdeflnatUsaNkxKTpbS06XCwkD3EACAlkOgg6VFREgPPCB9+aV5F+xVV0kzZ0oJCdL990v79gW6hwAAND8CHWwhLMycT7dunZSbK82bJ23eLF17rTR+vLlXLMOxAAC7snygS09PV1JSkoYMGRLoriBIJCRIjz4qffWV9Oqr5o4TI0dKQ4ea8+6qrV8NAIAtsGwJbM8wpLfflp55xlz65Ac/kP7lX6R77jF3pwAAwOosX6EDLsXhqBp23bHDvCv28celbt3MHShWrZK+/z7QvQQAoOEIdAgpQ4eaAa6gQHrpJam4WJoyRYqPl2bM4CYKAIA1MeSKkHf4sPQ//yMtXy598410443Sgw9Kd94ptWoV6N4BAHBpVOgQ8q68UnrqKSknx7xLtm1bafp06YorpDlzpE8+4Q5ZAEBwo0IH1OLLL6W//EXKyJBOnTJD3+TJ0qRJUv/+ge4dAADeCHRAPS5ckP7+d2nNGnPJkzNnpKQk6e67zbtke/QIdA8BACDQAT4rKzMXK3aHu5IS6eabpalTzfl2l18e6B4CAEIVgQ5ogJISaeNG6X//V9qyRYqMlFJSpDvuMJdI4V9BAEBLItABjZSfby6F8tpr5g0UkZHSj34kTZwo3Xab1KVLoHsIALA7ywe69PR0paenq6KiQocOHSLQIaByc6XXXzerd9u2SRUV5jIod9wh3X47c+4AAM3D8oHOjQodgs2pU9Ibb5jz7d5+WyotlQYNMoPd7bebW5ABANAUCHRACzh7VsrMNNe5e/NN6dw5qU8f6dZbzePmmyWnM9C9BABYFYEOaGHnzpl3y2ZmmkdentSmjTR6tHlDxYQJ5qLGAAD4ikAHBJBhSPv3m8Hurbekjz4y590lJ0s/+YkZ7q6/XgoPD3RPAQDBjEAHBJHvvpPeecccln3rLXMeXseO0pgxZgVv9GipW7dA9xIAEGwIdECQqqiQPv7YDHdbtki7d5sVvauuMoPdmDHSqFEsaAwAINABlnH6tLR1qxnu3n1XOnxYCguThgwxw92YMeYSKVFRge4pAKClEegAi8rJMYPdli3Se++Zw7Nt2ph3zI4YYR6DB5sLHQMA7I1AB9hAZaW0d68Z7rZuNW+uKC6WWreWbrqpKuBdfz3LowCAHRHoABsqLze3Idu2zQx4H34oFRVJ0dHmsOzIkWbAu+EGqVWrQPcWANBYBDogBFRUSC6XGfC2bZM++MC8ozYyUrruOmnYMLOSN2yYFB8f6N4CAPxl+UDHXq6A/yorzfXvPvzQHJ7dsUM6etR8r1cvM9y5A97VV7MOHgAEO8sHOjcqdEDj5OWZ4c4d8PbuNSt7bduaw7RDh5pDtNdfb66NBwAIHgQ6ALUqKTHXvnOHvI8/Nu+klcwq3g03VAW8a69lLh4ABBKBDoBPDEM6ckTaudMMdzt3mjdelJZKERHSgAFVAW/IEKlvX4ZqAaClEOgANFhZmTkXb+fOquPgQTP8tW5tVu4GDao6+vY1wx8AoGkR6AA0qaIis3K3Z0/VceiQ+V6rVlJysnln7XXXmSEvKYndLQCgsQh0AJpdUZF5k8Unn1Qdn39u3m0bGWneSXvttVVHcjJ71AKAP8L8/cD27duVkpKihIQEORwObdy48ZKf2bZtmwYNGqTo6Gj16tVLL730Up1tV69eLYfDoYkTJ/rbNQBBql07cyHj2bOl//1f6bPPzJD30UfSs8+aW5R9+qk0d6656HH79lL37tJtt0n/9V/SunXm3rWVlYH+JQAQnPyezVJSUqLk5GT98pe/1O23337J9tnZ2br11lv1wAMP6NVXX9VHH32kf/u3f1OnTp1qfP7o0aN6+OGHdfPNN/vbLQAW06ZN1Xp3buXl0hdfmIsg79tnHi+/LH37bdVn+veXrrmm6vGaa6ROnQLyEwAgaDRqyNXhcGjDhg31VtPmzp2rTZs26eDBg55zM2bM0L59+5SVleU5V1FRoREjRuiXv/ylPvjgA505c8an6p8bQ66AfX37bVXA+/RT80aMAwfMO2wlKS7ODHjVj6uvNtfQA4BQ0Oz3m2VlZWns2LFe58aNG6dly5bpwoULioyMlCQ9+eST6tSpk+677z598MEHl/y7paWlKnX/r7nMQAfAnuLipLFjzcOtvNwcht2/3wx5n34qvfWW9P/+X9XQbLdu5k0XFx8xMYH5HQDQXJo90BUUFCguLs7rXFxcnMrLy3Xy5El16dJFH330kZYtWyaXy+Xz3120aJGeeOKJJu4tAKuIiDCXQenbV7rzzqrz339v3nDx6admFe/AAWnTJunPfzaXU5GkLl3MYNevn/cRFyc5HIH5PQDQGC2yIpTjov+FdI/yOhwOnT17Vvfcc4+WLl2qjn7sJ5SWlqY5c+Z4XhcVFSkxMbFpOgzAslq1kgYONI/q3EHv4EHzOHBAeu896aWXzGqfZFbu+vaV+vSpCot9+ki9e0tOZ8v/FgDwVbMHuvj4eBUUFHidO378uCIiItShQwd99tlnysnJUUpKiuf9yn+Ol0REROiLL75Q7969a/xdp9MpJ/8LC8BHdQW9CxfModsvvjADn/t4/XWpsNBsExYm9exphrs+faQf/KDqSEgw3weAQGr2QDd06FD97W9/8zq3efNmDR48WJGRkerbt6/279/v9f6CBQt09uxZLV68mKobgGYVGVk15FqdYZg3Yxw6ZIY99/HGG+YWaBUVZrvWraUrr5SuuqrmwRAugJbid6ArLi7W4cOHPa+zs7PlcrkUGxurbt26KS0tTXl5eVqxYoUk847WJUuWaM6cOXrggQeUlZWlZcuWadWqVZKk6Oho9e/f3+s7Lv/niqIXnweAluJwSPHx5nHLLd7vXbgg5eSYYe/LL83HQ4eklSulY8eq5upddpkZ9nr3Nh/dR+/eUteuVPYANB2/A93u3bs1atQoz2v3PLbp06crIyND+fn5ys3N9bzfs2dPZWZmavbs2UpPT1dCQoKef/55n9awA4BgFBlZVYW72Pnz0ldfmUHvyy/N54cPS2vWSLm5VXfgOp3mMG6vXmbAcx89e5pH69Yt+5sAWBtbfwFACyktNSt7X31V8zhypGpdPcmsDPbqZR7ukOcOgF27SuHhAfsZAIIQgQ4AgkBlpZSfbwY795GdbYa97GzzPbfISHONvR49aj+6dCHwAaGGQAcAFvD999LRo2aFLzvbPHJyqo4TJ6raRkSYga97dzPgde9e9bpbNykxkWVYALsh0AGADRQXm4HPHfrcj+7n7v1w3eLjqwLexUdiotSxI3foAlZCoAOAEHD+vHkHbm5uVfBzv3Yf1efwRUdLV1xhhrtu3aqeV39s357QBwQLAh0AQIYhHT9uhjz3kZtb9fzrr6Vvvqlaf08y78S94oqaR9euVUfnzizPArQEywe69PR0paenq6KiQocOHSLQAUAzKS+XCgrMcOcOenl55uuvvzaf5+VVbaUmmfP5EhKqAl5tzxMSzDX7ADSc5QOdGxU6AAi8ykqz0ucOd+6g567wuc8XFXl/rm1b74DXpUvNxy5dpDZtAvO7gGBHoAMAtLjiYjPg1Xbk5ZnLtHzzjXl3b3Vt21aFu+pHfLz3Y2ws8/sQWgh0AICgZBhmJc8d7vLz6z4urvhFRpp76bq3b3Mf7nPVH9u2JfzB+gh0AADLO3fOnN9XUGAGvG+/rXp98fkLF7w/Gx3tHfCqH507ez9yZy+CFYEOABAyDEP67jsz2LlDn/t59aOgwJwLWFbm/fmICDPc1XV06uT9nDl/aCkEOgAAamEYUmGhGfCOH68KeydOmK/dh/vcd9/V/ButW5vBzh303M9rOzp2ZPgXDUegAwCgCZSVSSdPegc+9/MTJ2o+Lyys+Teiosxg5w54Fz+/+OjQwRwyBiIC3QEAAOwgKspcYiUhwbf2ZWXSqVNVAc8dBqs/P35cOnDAfH3yZM35f5K5hl+HDlUB7+Lntb1u04ZKoN0Q6AAACICoqKplV3xhGNLZs2awO3WqKuS5w9+pU+bxzTfS/v1VbWoLgVFRZrCLjfUOeu7XsbHez92PVAODF4EOAAALcDikdu3Mo1cv3z5jGOaaf+6w5w6Dp05Jp09XPT91ytz54/Rp8zhzpva/16pVVdir7WjfvvbHtm3ZAq65WT7QVd/6CwAAVHE4zDDVtq3Uo4fvn6uoMG/ycIe+776rCoHVz50+LX36adX5774zdwu5WFiYdPnlZsDz57j8cikmhjDoC26KAAAATaKy0hwWdoe76kHP/dr9/OKjtptEJDOUxsRUBTx3MKz+WN8RKvMFLV+hAwAAwSEszAxfMTFSz57+fbaiwgx1Z854Bz3364sfv/7au/3Fawa6hYdXhbuYGN8fqx+RkQ3759GSCHQAACDgwsOr5uI1xPnzVeHOHfQuPqqfLyioaltYaO42UpfWrWuGvOpHu3Y1X195pdS9e8N+S0MQ6AAAgOVFR1ft2dsQFy5UBT53yKvttfv47jspJ8d8XlRkPn7/fdXfmzdPWrSoCX6Yjwh0AAAg5EVGVi3Y3FBlZWa4Kypq+W3fCHQAAABNwL3TR2NCYUNxIzAAAIDFEegAAAAsjkAHAABgcQQ6AAAAiyPQAQAAWJzlA116erqSkpI0ZMiQQHcFAAAgIGyzl6thGDp79qzatm0rRyhs2gYAAPBPtgl0AAAAocryQ64AAAChjkAHAABgcQQ6AAAAiyPQAQAAWByBDgAAwOIIdAAAABZHoAMAALA4Ah0AAIDFEegAAAAsjkAHAABgcRGB7oC/3Hu2AgAA2EVj96K3XKA7e/asYmJiAt0NAACAJlNYWKh27do1+PMOwzCMJuxPs6urQldUVKTExEQdO3asUf9AfDVkyBDt2rWr2b8nFL6Pa2fd7+PaWff7uHbW/L6Wvm6Sff9ZtvT3XerahVyFzuFw1Psvcbt27VrkX/Lw8PAW+48pFL5P4tpZ9fskrp1Vv0/i2ln1+1rqukn2/2dpl2vHTRENlJqayvdZlN3/WXLt+L5gZPd/llw7vi/QLDfkWpeioiLFxMQ0egwaLY9rZ11cO+vi2lkT1826mvva2aZC53Q69dhjj8npdAa6K/AT1866uHbWxbWzJq6bdTX3tbNNhQ4AACBU2aZCBwAAEKoIdAAAABZHoAMAALA4Ah0AAIDF2SLQvfDCC+rZs6eio6M1aNAgffDBB4HuEi6yaNEiDRkyRG3btlXnzp01ceJEffHFF15tDMPQ448/roSEBLVq1UojR47UZ599FqAeozaLFi2Sw+HQrFmzPOe4bsEtLy9P99xzjzp06KDWrVvr2muv1Z49ezzvc/2CU3l5uRYsWKCePXuqVatW6tWrl5588klVVlZ62nDtgsP27duVkpKihIQEORwObdy40et9X65TaWmpfv3rX6tjx45q06aNbrvtNn399df+dcSwuNWrVxuRkZHG0qVLjQMHDhgzZ8402rRpYxw9ejTQXUM148aNM1555RXj008/NVwulzFhwgSjW7duRnFxsafNM888Y7Rt29ZYt26dsX//fmPSpElGly5djKKiogD2HG47d+40evToYQwYMMCYOXOm5zzXLXidPn3a6N69u3HvvfcaH3/8sZGdnW28++67xuHDhz1tuH7B6be//a3RoUMH44033jCys7ONv/71r8Zll11mPPfcc542XLvgkJmZacyfP99Yt26dIcnYsGGD1/u+XKcZM2YYXbt2NbZs2WJ88sknxqhRo4zk5GSjvLzc535YPtBdf/31xowZM7zO9e3b15g3b16AegRfHD9+3JBkbNu2zTAMw6isrDTi4+ONZ555xtPm/PnzRkxMjPHSSy8Fqpv4p7NnzxpXXXWVsWXLFmPEiBGeQMd1C25z5841hg8fXuf7XL/gNWHCBONf/uVfvM79/Oc/N+655x7DMLh2weriQOfLdTpz5owRGRlprF692tMmLy/PCAsLM95++22fv9vSQ65lZWXas2ePxo4d63V+7Nix2rFjR4B6BV8UFhZKkmJjYyVJ2dnZKigo8LqWTqdTI0aM4FoGgdTUVE2YMEGjR4/2Os91C26bNm3S4MGDdeedd6pz584aOHCgli5d6nmf6xe8hg8frvfee0+HDh2SJO3bt08ffvihbr31VklcO6vw5Trt2bNHFy5c8GqTkJCg/v37+3UtI5qu2y3v5MmTqqioUFxcnNf5uLg4FRQUBKhXuBTDMDRnzhwNHz5c/fv3lyTP9artWh49erTF+4gqq1ev1ieffKJdu3bVeI/rFtyOHDmiF198UXPmzNEjjzyinTt36je/+Y2cTqemTZvG9Qtic+fOVWFhofr27avw8HBVVFRo4cKFuvvuuyXx355V+HKdCgoKFBUVpfbt29do40+WsXSgc3M4HF6vDcOocQ7B46GHHtI//vEPffjhhzXe41oGl2PHjmnmzJnavHmzoqOj62zHdQtOlZWVGjx4sJ5++mlJ0sCBA/XZZ5/pxRdf1LRp0zztuH7BZ82aNXr11Ve1cuVKXX311XK5XJo1a5YSEhI0ffp0TzuunTU05Dr5ey0tPeTasWNHhYeH10iwx48fr5GGERx+/etfa9OmTXr//fd1xRVXeM7Hx8dLEtcyyOzZs0fHjx/XoEGDFBERoYiICG3btk3PP/+8IiIiPNeG6xacunTpoqSkJK9z/fr1U25uriT+uwtm//Ef/6F58+Zp8uTJuuaaazR16lTNnj1bixYtksS1swpfrlN8fLzKysr03Xff1dnGF5YOdFFRURo0aJC2bNnidX7Lli266aabAtQr1MYwDD300ENav369/v73v6tnz55e7/fs2VPx8fFe17KsrEzbtm3jWgbQj370I+3fv18ul8tzDB48WL/4xS/kcrnUq1cvrlsQGzZsWI3lgQ4dOqTu3btL4r+7YHbu3DmFhXn/X3R4eLhn2RKunTX4cp0GDRqkyMhIrzb5+fn69NNP/buWDb6VI0i4ly1ZtmyZceDAAWPWrFlGmzZtjJycnEB3DdU8+OCDRkxMjLF161YjPz/fc5w7d87T5plnnjFiYmKM9evXG/v37zfuvvtubsEPQtXvcjUMrlsw27lzpxEREWEsXLjQ+PLLL43XXnvNaN26tfHqq6962nD9gtP06dONrl27epYtWb9+vdGxY0fjP//zPz1tuHbB4ezZs8bevXuNvXv3GpKMZ5991ti7d69n+TRfrtOMGTOMK664wnj33XeNTz75xPjhD38YesuWGIZhpKenG927dzeioqKM6667zrMUBoKHpFqPV155xdOmsrLSeOyxx4z4+HjD6XQat9xyi7F///7AdRq1ujjQcd2C29/+9jejf//+htPpNPr27Wu8/PLLXu9z/YJTUVGRMXPmTKNbt25GdHS00atXL2P+/PlGaWmppw3XLji8//77tf7/2/Tp0w3D8O06ff/998ZDDz1kxMbGGq1atTJ+8pOfGLm5uX71w2EYhtGoeiIAAAACytJz6AAAAECgAwAAsDwCHQAAgMUR6AAAACyOQAcAAGBxBDoAAACLI9ABAABYHIEOAADA4gh0AAAAFkegAwAAsDgCHQAAgMUR6AAAACzu/wO4JbcwPoWEMgAAAABJRU5ErkJggg==
-"/>
+<html>\(\displaystyle \verb|[z^n]| \frac{1}{\sqrt{-z + 1}} \verb| |\verb|=|\verb| |\verb|	| \frac{1}{\sqrt{\pi}} n^{-\frac{1}{2}} - \frac{1}{8 \, \sqrt{\pi}} n^{-\frac{3}{2}} + \frac{1}{128 \, \sqrt{\pi}} n^{-\frac{5}{2}} + O\!\left(n^{-\frac{7}{2}}\right)\)</html>
 </div>
 </div>
 </div>
